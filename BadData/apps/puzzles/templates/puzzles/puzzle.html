@@ -5,10 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Puzzle</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: black;
+        }
+        #wrapper{
+            margin: 0 auto;
+            width: 80%;
+            height: 700px;
+            background-color: green;
+        }
+        .title, .nav-bar{
+            display: inline-block;
+        }
+        .nav-bar{
+            margin-left: 750px;
+        }
+        .variable-table, .graphs{
+            display: inline-block;
+            background-color: blue;
+            width: 49%;
+            height: 650px;
+            vertical-align: top;
+        }
+        .variable-graph, .origin-graph{
+            background-color: yellow;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            border-top: 2px solid black;
+        }
+    </style>
 </head>
 <body>
     <div id="wrapper">
+        <h1 class="title">Puzzle -name-</h1>
+        <p class="nav-bar"><a href="/reset">Reset Puzzle</a> | <a href="/">Home: Puzzle Select</a></p>
+        <div class="variable-table">
+            <form action="/submit_row">
 
+                <input type="submit" value="Submit Row">
+            </form>
+        </div>
+        <div class="graphs">
+            <div class="variable-graph">
+                <h2>Variable-graph</h2>
+            </div>
+            <div class="origin-graph">
+                <h2>Origin-graph</h2>
+            </div>
+        </div>
     </div>
 </body>
 </html>
