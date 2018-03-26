@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="static/puzzles/css/stylesheet.css">
     <title>Home/Puzzle Select</title>
-    <style>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}">
+    <!-- <style>
         * {
             box-sizing: border-box;
         }
         body{
-            background-color: black;
+            /* background-color: black; */
+            background-image: url('static/puzzles/imgs/big_data.jpg');
             color: white;
         }
         a{
@@ -73,7 +75,7 @@
                 width: 100%;
             }
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
