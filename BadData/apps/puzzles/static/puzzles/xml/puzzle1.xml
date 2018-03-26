@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+    <column value="id"><row>1</row></column>
+    <column value="name"><row>nick</row></column>
+    <column value="cost"><row>100000</row></column>
+</table>
+<answer>
+    <y>[10,9,8,7,6,5,4,3,2,1]</y>
+    <x>[1,2,3,4,5,6,7,8,9,10]</x>
+</answer>
