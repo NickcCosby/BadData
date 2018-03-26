@@ -3,9 +3,9 @@ from django.shortcuts import render, redirect
 def index(request):
 	return render(request, "puzzles/index.html")
 
-def getPuzzle(request, number):
+def getPuzzle(request, puzzle):
 	context = {
-		'puzzle':"static/puzzles/" + str(number) + ".xml/"
+		'puzzle':puzzle
 	}
 	return render(request, "puzzles/puzzle.html", context)
 

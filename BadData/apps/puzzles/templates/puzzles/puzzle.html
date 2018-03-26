@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Puzzle</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}">
+    <script src="../../static/puzzles/js/puzzle1.js"></script>
+    <script src="../../static/puzzles/js/puzzle.js"></script>
+    <script>
+        $(document).ready(function () 
+        {
+            documentReady("puzzle1");
+        });
+    </script>
     <style>
         *{
             margin: 0;
@@ -55,33 +65,18 @@
         <div class="variable-table">
             <table>
                 <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>cost</th>
+                    <tr class="columnDef">
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Nick</td>
-                        <td>1000000</td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="id"></td>
-                        <td><input type="text" class="name"></td>
-                        <td><input type="text" class="cost"></td>
-                    </tr>
+                <tbody class="stuff">
                 </tbody>
             </table>
-            <input type="submit" value="Submit Row">
+            <input type="submit" value="Submit" class="submit">
         </div>
         <div class="graphs">
-            <div class="variable-graph">
-                <h2>Variable-graph</h2>
+            <div class="variable-graph" id="variable-graph">
             </div>
-            <div class="origin-graph">
-                <h2>Origin-graph</h2>
+            <div class="origin-graph" id="origin-graph">
             </div>
         </div>
     </div>
