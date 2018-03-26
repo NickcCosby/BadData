@@ -5,8 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Puzzle</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}">
+<<<<<<< HEAD
+=======
+    <script src="../../static/puzzles/js/puzzle1.js"></script>
+    <script src="../../static/puzzles/js/puzzle.js"></script>
+    <script>
+        $(document).ready(function () 
+        {
+            documentReady("puzzle1");
+        });
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+        }
+        #wrapper{
+            margin: 0 auto;
+            width: 80%;
+            height: 700px;
+            background-color: rgb(0, 87, 128);
+        }
+        a{
+            color: white;
+        }
+        .title, .nav-bar{
+            display: inline-block;
+        }
+        .nav-bar{
+            margin-left: 750px;
+        }
+        .variable-table, .graphs{
+            display: inline-block;
+            background-color: rgb(47, 157, 207);
+            width: 47%;
+            height: 610px;
+            margin: 1%;
+            vertical-align: top;
+        }
+        .variable-graph, .origin-graph{
+            background-color: rgb(0, 174, 255);
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            margin-bottom: 10px;
+        }
+    </style>
+>>>>>>> newJavaScriptStuff
 </head>
 <body>
     <div id="wrapper">
@@ -17,33 +70,18 @@
         <div class="variable-table col-6">
             <table>
                 <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>cost</th>
+                    <tr class="columnDef">
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Nick</td>
-                        <td>1000000</td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="id"></td>
-                        <td><input type="text" class="name"></td>
-                        <td><input type="text" class="cost"></td>
-                    </tr>
+                <tbody class="stuff">
                 </tbody>
             </table>
-            <input type="submit" value="Submit Row">
+            <input type="submit" value="Submit" class="submit">
         </div>
-        <div class="graphs col-6">
-            <div class="variable-graph">
-                <h2>Variable-graph</h2>
+        <div class="graphs">
+            <div class="variable-graph" id="variable-graph">
             </div>
-            <div class="origin-graph">
-                <h2>Origin-graph</h2>
+            <div class="origin-graph" id="origin-graph">
             </div>
         </div>
     </div>
