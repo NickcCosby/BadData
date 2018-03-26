@@ -64,7 +64,7 @@ function xmlParser(xml)
 		}
 		if(updateGraph(data, awnser))
 		{
-			alert("WIN!")
+			window.location.href= "win/"
 		}
 	});
 }
@@ -83,7 +83,7 @@ function documentReady(puzzle)
 	$.ajax(
 	{
 		type: "GET",
-		url: "http://localhost:8000/puzzle1.xml",
+		url: "http://localhost:8000/puzzle/"+ puzzle +"/xml",
 		dataType: "xml",
 		success: xmlParser
 	}).fail(function()

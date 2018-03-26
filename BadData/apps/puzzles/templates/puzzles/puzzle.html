@@ -9,14 +9,12 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}">
-<<<<<<< HEAD
-=======
-    <script src="../../static/puzzles/js/puzzle1.js"></script>
-    <script src="../../static/puzzles/js/puzzle.js"></script>
+    <script src="../../static/puzzles/js/{{puzzle}}.js"></script>
+    <script src="{% static 'puzzles/js/puzzle.js' %}"></script>
     <script>
         $(document).ready(function () 
         {
-            documentReady("puzzle1");
+            documentReady("{{puzzle}}");
         });
     </script>
     <style>
@@ -59,7 +57,6 @@
             margin-bottom: 10px;
         }
     </style>
->>>>>>> newJavaScriptStuff
 </head>
 <body>
     <div id="wrapper">
