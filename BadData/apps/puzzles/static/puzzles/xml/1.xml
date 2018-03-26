@@ -6,7 +6,7 @@
         <column value="cost"><row>100000</row></column>
     </table>
     <answer>
-        <y>[10,5,2,1]</y>
+        <y>[10,8,6,4]</y>
         <x>[1,2,3,4]</x>
     </answer>
 </puzzle>
