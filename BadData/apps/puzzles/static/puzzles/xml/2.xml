@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<puzzle>
+    <table>
+        <column value="id"><row>1</row></column>
+        <column value="count"><row>235</row></column>
+    </table>
+    <answer>
+        <y>[4, 8, 12, 16]</y>
+        <x>[1,2,3,4]</x>
+    </answer>
+</puzzle>
