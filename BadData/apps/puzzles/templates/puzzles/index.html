@@ -4,15 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="static/puzzles/css/stylesheet.css">
     <title>Home/Puzzle Select</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            color: white;
+        }
+        a{
+            color: rgb(0, 65, 161);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .row::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+        .header {
+            background-color: #197cd8;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+        }
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .menu li {
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: #33b5e5;
+            color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+        .menu li:hover {
+            background-color: #0099cc;
+        }
+        .create-puzzle {
+            background-color: #33b5e5;
+            padding: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+        .footer {
+            background-color: #20acdb;
+            color: #ffffff;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+        }
+        /* For desktop: */
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+
+        @media only screen and (max-width: 768px) {
+            /* For mobile phones: */
+            [class*="col-"] {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div id="wrapper">
-        <h1>Puzzle Select</h1>
-        <div class="puzzle">
-            <h3>Puzzle #1</h3>
-            <a href="/puzzle">Start Puzzle</a>
+    <div class="header">
+        <h1>BadDATA</h1>
+    </div>
+    <div class="row">
+        <div class="default-puzzles col-3 menu">
+            <h2>Default Puzzles</h2>
+            <ul>
+                <li>Puzzle #1 <a href="/puzzle/1">Play</a></li>
+                <li>Puzzle #2 <a href="/puzzle/1">Play</a></li>
+                <li>Puzzle #3 <a href="/puzzle/1">Play</a></li>
+                <li>Puzzle #4 <a href="/puzzle/1">Play</a></li>
+            </ul>
+        </div>
+        <div class="user-puzzles col-6">
+            <h1>User Created Puzzles</h1>
+            <p>)PlaceHolder( Choose Ranked by difficulty or date created</p>
+            <a href="/puzzle/{{user_id}}">Play</a>
+        </div>
+        <div class="col-3 right">
+            <div class="create-puzzle">
+                <h2>Create Puzzle</h2>
+                <p>Make your own custom puzzle to challenge your friends or other players.</p>
+                <a href="/create_puzzle">Create Puzzle</a>
+            </div>
         </div>
     </div>
+    <div class="footer">
+        <p><a href="/logout">Logout</a> | <a href="/user_info">User Info</a></p>
+    </div>
 </body>
+
 </html>
