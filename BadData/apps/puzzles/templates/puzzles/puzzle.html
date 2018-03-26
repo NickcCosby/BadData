@@ -7,52 +7,14 @@
     <title>Puzzle</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}">
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            background-color: black;
-        }
-        #wrapper{
-            margin: 0 auto;
-            width: 80%;
-            height: 700px;
-            background-color: rgb(0, 87, 128);
-        }
-        a{
-            color: white;
-        }
-        .title, .nav-bar{
-            display: inline-block;
-        }
-        .nav-bar{
-            margin-left: 750px;
-        }
-        .variable-table, .graphs{
-            display: inline-block;
-            background-color: rgb(47, 157, 207);
-            width: 47%;
-            height: 610px;
-            margin: 1%;
-            vertical-align: top;
-        }
-        .variable-graph, .origin-graph{
-            background-color: rgb(0, 174, 255);
-            height: 300px;
-            text-align: center;
-            line-height: 300px;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
     <div id="wrapper">
-        <h1 class="title">Puzzle -name-</h1>
-        <p class="nav-bar"><a href="/reset">Reset Puzzle</a> | <a href="/">Home: Puzzle Select</a></p>
-        <div class="variable-table">
+        <div class="header">
+            <h1 class="title">Puzzle -name-</h1>
+            <p class="nav-bar"><a href="/reset">Reset Puzzle</a> | <a href="/">Home: Puzzle Select</a></p>
+        </div>
+        <div class="variable-table col-6">
             <table>
                 <thead>
                     <tr>
@@ -76,7 +38,7 @@
             </table>
             <input type="submit" value="Submit Row">
         </div>
-        <div class="graphs">
+        <div class="graphs col-6">
             <div class="variable-graph">
                 <h2>Variable-graph</h2>
             </div>
