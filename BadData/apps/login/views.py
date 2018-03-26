@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
-from models import *
+from models import UserManager, User
 import bcrypt
 
 def index(request):

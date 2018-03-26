@@ -83,7 +83,7 @@ function documentReady(puzzle)
 	$.ajax(
 	{
 		type: "GET",
-		url: "http://localhost:8000/puzzle/"+ puzzle +"/xml",
+		url: "http://localhost:8000/BadData/puzzle/"+ puzzle +"/xml",
 		dataType: "xml",
 		success: xmlParser
 	}).fail(function()
