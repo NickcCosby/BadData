@@ -18,27 +18,33 @@
             <div class="default-puzzles col-3 menu">
                 <h2>Default Puzzles</h2>
                 <ul>
-                    <li>Puzzle #1 <a href="/puzzle/1">Play</a></li>
-                    <li>Puzzle #2 <a href="/puzzle/1">Play</a></li>
-                    <li>Puzzle #3 <a href="/puzzle/1">Play</a></li>
-                    <li>won Puzzle temp <a href="/puzzle/1/win">Play</a></li>
+                    <li>Puzzle #1 <a href="/BadData/puzzle/1">Play</a></li>
+                    <li>Puzzle #2 <a href="/BadData/puzzle/2">Play</a></li>
+                    <li>Puzzle #3 <a href="/BadData/puzzle/3">Play</a></li>
+                    <li>won Puzzle temp <a href="/BadData/puzzle/1/win">Play</a></li>
                 </ul>
             </div>
             <div class="user-puzzles col-6">
                 <h1>User Created Puzzles</h1>
-                <p>)PlaceHolder( Choose Ranked by difficulty or date created</p>
-                <a href="/puzzle/{{user_id}}">Play</a>
+                <!-- {% for puzzle in puzzles %} -->
+                    <div class="user-created-puzzle">
+                        <p>{{puzzle.name}}</p>
+                        <p>{{puzzle.difficulty}}</p>
+                        <p>)PlaceHolder( Choose Ranked by difficulty or date created</p>
+                        <a href="/BadData/puzzle/{{user.id}}">Play</a>
+                    </div>
+                <!-- {% endfor %} -->
             </div>
             <div class="col-3 right">
                 <div class="create-puzzle">
                     <h2>Create Puzzle</h2>
                     <p>Make your own custom puzzle to challenge your friends or other players.</p>
-                    <a href="/create_puzzle">Create Puzzle</a>
+                    <a href="/BadData/create_puzzle">Create Puzzle</a>
                 </div>
             </div>
         </div>
         <div class="footer">
-            <p><a href="/logout">Logout</a> | <a href="/user_info">User Info</a></p>
+            <p><a href="/logout">Logout</a> | <a href="/user_info/{{user.id}}">User Info</a></p>
         </div>
     </div>
 </body>
