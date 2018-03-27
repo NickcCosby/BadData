@@ -19,10 +19,9 @@
             <div class="default-puzzles col-6 menu">
                 <h2 class="title">Default Puzzles</h2>
                 <ul>
-                    <li class="col-6"><a href="/BadData/puzzle/1"><span style="color:white">Puzzle #1</span> Play</a></li>
-                    <li class="col-6"><a href="/BadData/puzzle/2"><span style="color:white">Puzzle #2</span> Play</a></li>
-                    <li class="col-6"><a href="/BadData/puzzle/3"><span style="color:white">Puzzle #3</span> Play</a></li>
-                    <li class="col-6"><a href="/BadData/puzzle/4"><span style="color:white">Puzzle #4</span> Play</a></li>
+                    {% for puzzle in adminPuzzles %}
+                        <li class="col-6"><a href="/BadData/puzzle/{{puzzle.id}}"><span style="color:white">{{puzzle.name}}</span> Play</a></li>
+                    {% endfor %}
                     <li class="col-6"><a href="/BadData/puzzle/1/win"><span style="color:white">Win Puzzle Temp</span> Play</a></li>
                 </ul>
             </div>
@@ -34,10 +33,10 @@
                     <a href="/BadData/create_puzzle">Create Puzzle</a>
                 </div>
                 <div class="order">
-                    <p><a href="/order/date">Date Created</a> | <a href="/order/difficulty">Difficulty</a> | <a href="/order/title">Title</a></p>  
+                    <p><a href="/BadData/date">Date Created</a> | <a href="/BadData/difficulty">Difficulty</a> | <a href="/BadData/title">Title</a></p>  
                 </div>
                 <div class="user-puzzles">
-                    <!-- {% for puzzle in puzzles %} -->
+                    {% for puzzle in userPuzzles %}
                         <div class="user-created-puzzle col-6">
                             <p>title {{puzzle.name}}</p>
                             <p>diff -/10 {{puzzle.difficulty}}</p>
@@ -45,7 +44,7 @@
                             <p><a href="/user_info/{{puzzle.creator.id}}">Made By: name {{puzzle.creator.first_name}}</a></p>
                             <a href="/BadData/puzzle/{{puzzle.id}}">Play</a>
                         </div>
-                    <!-- {% endfor %} -->
+                    {% endfor %}
                     <div class="user-created-puzzle col-6">
                         <p>title {{puzzle.name}} diff -/10 {{puzzle.difficulty}}</p>
                         <p>date created {{puzzle.created_at}}</p>
