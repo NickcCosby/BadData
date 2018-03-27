@@ -12,7 +12,7 @@
 <body>
     <div id="wrapper">
         <div class="header">
-            <h1>Congrats!</h1>
+            <h1>Congrats! {{user.first_name}}</h1>
         </div>
         <div class="row">
             <div class="col-3 menu">
@@ -26,13 +26,12 @@
                 <h3>Average Time: ----</h3>
                 <br>
                 <h3>Rank Difficulty: -/10</h3>
-                <a href="/puzzle/{{user_id}}">Rank</a>
             </div>
             <div class="col-3 right">
             </div>
         </div>
         <div class="footer">
-            <p><a href="/create_puzzle">Make Your own Puzzle</a> | <a href="/">Back to Puzzle Select</a></p>
+            <p><a href="/BadData/create_puzzle">Make Your own Puzzle</a> | <a href="/BadData">Back to Puzzle Select</a></p>
         </div>
     </div>
 </body>

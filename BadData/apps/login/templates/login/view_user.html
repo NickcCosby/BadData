@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View User</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="header">
+            <h3 class="nav-bar"><a href="/BadData">Home</a> | <a href="/logout">Logout</a></h3>
+            <h1 class="title">User: {{user.first_name}}</h1>
+        </div>
+        <h3>Count: {{count}}</h3>
+        <h3>Puzzles Made</h3>
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

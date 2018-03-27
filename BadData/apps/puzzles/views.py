@@ -1,17 +1,24 @@
 from django.shortcuts import render, redirect, HttpResponse
+from django.contrib import messages
+from ..login.models import User
 
 def index(request):
-	return render(request, "puzzles/index.html")
+    context = {
+        "user" : User.objects.get(id=request.session['user_id']),
+    }
+    return render(request,'puzzles/index.html',context)
 
 def getPuzzle(request, number):
 	context = {
-		'puzzle':number
+		'number': number,
+		'url' : 'puzzles/js/'+str(number)+'.js'
 	}
 	return render(request, "puzzles/puzzle.html", context)
 
 def wonPuzzle(request, number):
 	context = {
-		'number':number
+		'number': number,
+		"user" : User.objects.get(id=request.session['user_id']),
 	}
 	return render(request, "puzzles/wonPuzzle.html", context)
 
