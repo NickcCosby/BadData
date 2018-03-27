@@ -5,10 +5,10 @@ from ..login.models import User
 def index(request):
 	if 'user_id' not in request.session:
 		return redirect('/')
-    context = {
-        "user" : User.objects.get(id=request.session['user_id']),
-    }
-    return render(request,'puzzles/index.html',context)
+	context = {
+		"user" : User.objects.get(id=request.session['user_id']),
+	}
+	return render(request,'puzzles/index.html',context)
 
 def getPuzzle(request, number):
 	if 'user_id' not in request.session:
