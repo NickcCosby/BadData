@@ -2,7 +2,6 @@ function updateGraph(data, awnser)
 {
     var x = [];
 	var y = [];
-	console.log(countLower(data['User'][0]))
     for(var iii=0; iii < data['id'].length; iii++)
     {
         y.push(countUpper(data['Company'][iii]) + countUpper(data['User'][iii]));
