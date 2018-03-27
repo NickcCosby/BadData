@@ -22,7 +22,8 @@ def getPuzzle(request, number):
 		return redirect('/')
 	context = {
 		'number': number,
-		'url' : 'puzzles/js/'+str(number)+'.js'
+		'url' : 'puzzles/js/'+str(number)+'.js',
+		'puzzle' : Puzzle.objects.get(id = number),
 	}
 	return render(request, "puzzles/puzzle.html", context)
 
@@ -32,6 +33,7 @@ def wonPuzzle(request, number):
 	context = {
 		'number': number,
 		"user" : User.objects.get(id=request.session['user_id']),
+		'puzzle' : Puzzle.objects.get(id = number),
 	}
 	return render(request, "puzzles/wonPuzzle.html", context)
 

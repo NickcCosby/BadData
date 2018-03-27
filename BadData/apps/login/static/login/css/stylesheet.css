@@ -73,6 +73,7 @@ input{
 }
 .nav-bar{
     text-align: right;
+    margin-top: 5px;
 }
 .nav-bar a{
     background: #0B0D26;

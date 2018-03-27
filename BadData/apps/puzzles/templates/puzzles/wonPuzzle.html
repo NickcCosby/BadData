@@ -13,25 +13,24 @@
     <div id="wrapper">
         <div class="header">
             <h1>Congrats! {{user.first_name}}</h1>
+            <p class="nav-bar"><a href="/BadData/create_puzzle">Create A Puzzle</a> | <a href="/BadData">Home: Puzzle Select</a></p>
         </div>
         <div class="row">
             <div class="col-3 menu">
             </div>
             <div class="puzzle-info col-6">
-                <h2>BadData puzzle )puzzle name( Solved!</h2>
-                <h3>Puzzle Made By: )User Name(</h3>
+                <h2><span style="color: rgb(255, 0, 0); font-style: oblique;">Bad</span>DATA Puzzle: <span style="color:blue">{{puzzle.name}}</span> Solved!</h2>
+                <h3>Puzzle Created By: <span style="color:blue">{{puzzle.creator.first_name}}</span></h3>
                 <br>
                 <br>            
                 <h3>Your Time: ----</h3>
                 <h3>Average Time: ----</h3>
                 <br>
                 <h3>Rank Difficulty: -/10</h3>
+                <h3>Quality Rating: -/10</h3>
             </div>
             <div class="col-3 right">
             </div>
-        </div>
-        <div class="footer">
-            <p><a href="/BadData/create_puzzle">Make Your own Puzzle</a> | <a href="/BadData">Back to Puzzle Select</a></p>
         </div>
     </div>
 </body>
