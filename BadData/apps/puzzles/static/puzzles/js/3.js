@@ -2,9 +2,10 @@ function updateGraph(data, awnser)
 {
     var x = [];
 	var y = [];
+	console.log(countLower(data['User'][0]))
     for(var iii=0; iii < data['id'].length; iii++)
     {
-        y.push(countUpper(data['Company'][iii]) + countUpper(data['User'][iii]));
+        y.push(countUpper(data['Company'][iii]) % 9 + countLower(data['User'][iii]) % 9);
 	}
     for(iii = 0; iii < data['id'].length; iii++)
     {
@@ -74,6 +75,19 @@ function countUpper(str)
 	}
 	return sum;
 }
+function countLower(str)
+{
+	var character = '';
+	var sum = 0;
+	for(var iii = 0; iii < str.length; iii++)
+	{
+		character = str.charAt(iii);
+		if(character == character.toLowerCase() && isNaN(character * 1))
+			sum++;
+	}
+	return sum;
+}
+
 
 function compareFunction(a1, a2)
 {

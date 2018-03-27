@@ -20,8 +20,15 @@ function updateGraph(data, awnser)
     {
 		xaxis: {showgrid: true, gridcolor:'#bdbdbd', gridwidth:2, dtick: 1,
 		 range: [awnser['x'].reduce(function(a,b){return Math.min(a,b)})-.25,awnser['x'].reduce(function(a,b){return Math.max(a,b)})+.25]},
-		yaxis: {showgrid: true, gridcolor:'#bdbdbd', gridwidth:2, dtick: 1, 
-		range: [awnser['y'].reduce(function(a,b){return Math.min(a,b)})-1.4,awnser['y'].reduce(function(a,b){return Math.max(a,b)})+1]}
+		yaxis: {showgrid: true, gridcolor:'#bdbdbd', gridwidth:2, dtick: 2, 
+		range: [awnser['y'].reduce(function(a,b){return Math.min(a,b)})-1.4,awnser['y'].reduce(function(a,b){return Math.max(a,b)})+1]},
+		margin:
+		{
+			l: 30,
+			r: 30,
+			b: 30,
+			t: 30
+		}
     }
     Plotly.newPlot('variable-graph', [trace1],layout, {displayModeBar: false, staticPlot:true});
     if (compareFunction(x, awnser['x']) && compareFunction(y, awnser['y']))
@@ -44,7 +51,14 @@ function awnserGraph(awnser)
 	var layout = 
 	{
 		xaxis: {showgrid: true, gridcolor:'#bdbdbd', gridwidth:2, dtick: 1},
-		yaxis: {showgrid: true, gridcolor:'#bdbdbd', gridwidth:2, dtick: 1}
+		yaxis: {showgrid: true, gridcolor:'#bdbdbd', gridwidth:2, dtick: 2},
+		margin:
+		{
+			l: 30,
+			r: 30,
+			b: 30,
+			t: 30
+		}
 	}
     Plotly.newPlot('origin-graph', [trace1], layout,{displayModeBar: false, staticPlot:true});
 }
