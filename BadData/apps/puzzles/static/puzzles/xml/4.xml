@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<puzzle>
+    <table>
+        <column value="id"><row>1</row></column>
+        <column value="company_id"><row>70</row></column>
+		<column value="count"><row>3</row></column>
+    </table>
+    <answer>
+        <y>[25, 16, 9, 4]</y>
+        <x>[6,3,6,3]</x>
+    </answer>
+</puzzle>
