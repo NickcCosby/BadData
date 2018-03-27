@@ -6,16 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>View User</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/stylesheet.css' %}">
 </head>
 <body>
     <div id="wrapper">
         <div class="header">
-            <h3 class="nav-bar"><a href="/BadData">Home</a> | <a href="/logout">Logout</a></h3>
             <h1 class="title">User: {{user.first_name}}</h1>
+            <h3 class="nav-bar"><a href="/BadData">Home</a> | <a href="/logout">Logout</a></h3>
         </div>
-        <h3>Count: {{count}}</h3>
-        <h3>Puzzles Made</h3>
+        <div class="row">
+            <div class="col-3 menu">
+            </div>
+            <div class="user-info col-6">
+                <h3>Count: {{count}}</h3>
+                <h3>Puzzles Made</h3>
+            </div>
+            <div class="col-3 right">
+            </div>
+        </div>
+        
 
     </div>
 </body>

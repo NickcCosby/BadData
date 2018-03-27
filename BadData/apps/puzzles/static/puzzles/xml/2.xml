@@ -5,7 +5,7 @@
         <column value="count"><row>235</row></column>
     </table>
     <answer>
-        <y>[4, 8, 12, 16]</y>
+        <y>[4, 8, 12, 14]</y>
         <x>[1,2,3,4]</x>
     </answer>
 </puzzle>

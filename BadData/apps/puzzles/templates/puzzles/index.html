@@ -12,39 +12,48 @@
 <body>
     <div id="wrapper">
         <div class="header">
-            <h1>BadDATA</h1>
+            <h1 class="title"><span style="color: rgb(255, 0, 0); font-style: oblique;">Bad</span>DATA</h1>
+            <p class="nav-bar"><a href="/logout">Logout</a> | <a href="/user_info/{{user.id}}">User Info</a></p>
         </div>
         <div class="row">
-            <div class="default-puzzles col-3 menu">
-                <h2>Default Puzzles</h2>
+            <div class="default-puzzles col-6 menu">
+                <h2 class="title">Default Puzzles</h2>
                 <ul>
-                    <li>Puzzle #1 <a href="/BadData/puzzle/1">Play</a></li>
-                    <li>Puzzle #2 <a href="/BadData/puzzle/2">Play</a></li>
-                    <li>Puzzle #3 <a href="/BadData/puzzle/3">Play</a></li>
-                    <li>won Puzzle temp <a href="/BadData/puzzle/1/win">Play</a></li>
+                    <li class="col-6"><a href="/BadData/puzzle/1"><span style="color:white">Puzzle #1</span> Play</a></li>
+                    <li class="col-6"><a href="/BadData/puzzle/2"><span style="color:white">Puzzle #2</span> Play</a></li>
+                    <li class="col-6"><a href="/BadData/puzzle/3"><span style="color:white">Puzzle #3</span> Play</a></li>
+                    <li class="col-6"><a href="/BadData/puzzle/4"><span style="color:white">Puzzle #4</span> Play</a></li>
+                    <li class="col-6"><a href="/BadData/puzzle/1/win"><span style="color:white">Win Puzzle Temp</span> Play</a></li>
                 </ul>
             </div>
-            <div class="user-puzzles col-6">
-                <h1>User Created Puzzles</h1>
-                <!-- {% for puzzle in puzzles %} -->
-                    <div class="user-created-puzzle">
-                        <p>{{puzzle.name}}</p>
-                        <p>{{puzzle.difficulty}}</p>
-                        <p>)PlaceHolder( Choose Ranked by difficulty or date created</p>
-                        <a href="/BadData/puzzle/{{user.id}}">Play</a>
-                    </div>
-                <!-- {% endfor %} -->
-            </div>
-            <div class="col-3 right">
+            <div class="col-6">
+                <h2 class="title">User Created Puzzles</h2>
                 <div class="create-puzzle">
                     <h2>Create Puzzle</h2>
                     <p>Make your own custom puzzle to challenge your friends or other players.</p>
                     <a href="/BadData/create_puzzle">Create Puzzle</a>
                 </div>
+                <div class="order">
+                    <p><a href="/order/date">Date Created</a> | <a href="/order/difficulty">Difficulty</a> | <a href="/order/title">Title</a></p>  
+                </div>
+                <div class="user-puzzles">
+                    <!-- {% for puzzle in puzzles %} -->
+                        <div class="user-created-puzzle col-6">
+                            <p>title {{puzzle.name}}</p>
+                            <p>diff -/10 {{puzzle.difficulty}}</p>
+                            <p>date created {{puzzle.created_at}}</p>
+                            <p><a href="/user_info/{{puzzle.creator.id}}">Made By: name {{puzzle.creator.first_name}}</a></p>
+                            <a href="/BadData/puzzle/{{puzzle.id}}">Play</a>
+                        </div>
+                    <!-- {% endfor %} -->
+                    <div class="user-created-puzzle col-6">
+                        <p>title {{puzzle.name}} diff -/10 {{puzzle.difficulty}}</p>
+                        <p>date created {{puzzle.created_at}}</p>
+                        <p><a href="/user_info/{{puzzle.creator.id}}">Made By: name {{puzzle.creator.first_name}}</a></p>                        
+                        <a href="/BadData/puzzle/{{puzzle.id}}">Play</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="footer">
-            <p><a href="/logout">Logout</a> | <a href="/user_info/{{user.id}}">User Info</a></p>
         </div>
     </div>
 </body>
