@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
 from models import UserManager, User
+from ..puzzles.models import Puzzle
 import bcrypt
 
 def index(request):
@@ -48,6 +49,8 @@ def view_user(request, id):
         return redirect('/')
     context = {
         "user" : User.objects.get(id=id),
+        "puzzles" : Puzzle.objects.filter(creator=User.objects.get(id=id)),
+        "count" : len(Puzzle.objects.filter(creator=User.objects.get(id=id))),
     }
     return render(request,'login/view_user.html',context)
 
