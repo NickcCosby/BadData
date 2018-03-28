@@ -10,7 +10,7 @@ def index(request):
 	if 'user-puzzles' not in request.session:
 		request.session['user-puzzles'] = 'id'
 	adminCreated = Puzzle.objects.filter(creator=User.objects.get(id=1))
-	userCreated = Puzzle.objects.filter(creator=User.objects.get(id=1))
+	userCreated = Puzzle.objects.exclude(creator=User.objects.get(id=1))
 	context = {
 		"adminPuzzles" : adminCreated.order_by('id'),
 		"userPuzzles" : userCreated.order_by(request.session['user-puzzles']),
