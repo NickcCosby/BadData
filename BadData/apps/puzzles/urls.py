@@ -8,7 +8,9 @@ urlpatterns = [
 	url(r'^puzzle/(?P<number>[0-9]+)/xml$', views.getXML),
 	url(r'^create_puzzle$', views.newPuzzle),
 	url(r'^create/$', views.createPuzzle),
+	url(r'^qRate/(?P<number>[0-9]+)$', views.qRate),
 	url(r'^date$', views.orderByDate),
 	url(r'^difficulty$', views.orderByDifficulty),
+	url(r'^rating$', views.orderByRating),
 	url(r'^title$', views.orderByName),
 ]
