@@ -10,33 +10,46 @@
 }
 [class*="col-"] {
     float: left;
-    padding: 15px;
+    padding: 10px;
 }
 html {
     font-family: "Lucida Sans", sans-serif;
 }
 body{
-    background: black url('/static/puzzles/imgs/random_data.jpg') no-repeat;
-    /* background: black url('/static/puzzles/imgs/data.jpg') no-repeat; */
-    /* background: black url('/static/puzzles/imgs/big_data.jpg') no-repeat; */
-    /* background: black url('/static/puzzles/imgs/data_towers.jpg') no-repeat; */
-    background-size: cover;    
+    background: black url('/static/puzzles/imgs/random_data.jpg') no-repeat center center fixed;
+    /* background: black url('/static/puzzles/imgs/data.jpg') no-repeat center center fixed; */
+    /* background: black url('/static/puzzles/imgs/big_data.jpg') no-repeat center center fixed; */
+    /* background: black url('/static/puzzles/imgs/data_towers.jpg') no-repeat center center fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     color: white;
 }
 #wrapper{
     margin: 0 auto;
-    width: 90%;
+    width: 80%;
 }
 a{
-    color: rgb(0, 65, 161);
+    color: rgb(2, 81, 253);
     text-decoration: none;
     font-weight: bold;
 }
+input{
+    padding: 2px 0px;
+}
+.btn{
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid rgb(0, 119, 255);
+}
 .header {
-    background-color: #197cd8;
-    padding: 15px;
+    background: radial-gradient(rgb(0, 60, 133), rgb(12, 33, 95));
+    padding: 10px;
     text-align: center;
-    border-radius: 10px;    
+    border-radius: 10px;
+    margin-top: 10px;  
+    border: 2px dotted cyan;
 }
 .title{
     text-align: center;
@@ -44,27 +57,33 @@ a{
 .nav-bar{
     text-align: right;
 }
+.nav-bar a{
+    background: #0B0D26;
+    border-radius: 10px;
+    padding: 5px;
+    line-height: 30px;
+}
 /* part of puzzle.html */
 .variable-table, .graphs{
     display: inline-block;
-    /* background-color: #33b5e5; */
     padding: 15px;            
     vertical-align: top;
     font-size: 14px;            
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);        
 }
 .variable-graph, .origin-graph{
-    background-color: rgb(0, 174, 255);
-    height: 280px;
+    background: linear-gradient(rgb(0, 153, 255),#33b5e5);    
+    height: 290px;
     text-align: center;
     line-height: 280px;
     margin-bottom: 15px;
     font-size: 14px;            
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 10px;       
+    border-radius: 10px;
+    /* padding: 10px;       */
 }
 table{
-    background-color:  #33b5e5;
+    background: linear-gradient(rgb(0, 153, 255),#33b5e5);    
+    text-align: center;
 }
 table, input {
     border-collapse: collapse;
@@ -72,11 +91,13 @@ table, input {
     margin-bottom: 10px;
     width: 100%;
     border-radius: 20px;
-    text-align: center;
 }
 th, td {
     padding: 10px;
     padding-bottom: 0px;
+}
+table input {
+    padding-left: 5px;
 }
 /* end of puzzle.html */
 /* start of index.html */
@@ -88,36 +109,83 @@ th, td {
 .menu li {
     padding: 8px;
     margin-bottom: 7px;
-    background-color: #33b5e5;
+    background: linear-gradient(rgb(0, 153, 255),#33b5e5);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 10px;
     text-align: center;  
 }
 .menu li:hover {
-    background-color: #0099cc;
+    background: #007da7;
 }
-.create-puzzle {
-    background-color: #33b5e5;
-    padding: 15px;
+.user-puzzles{
+    background: linear-gradient(rgb(0, 153, 255),#33b5e5);
+    padding: 10px;
     text-align: center;
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 10px;        
+    border-radius: 10px;
+    height: 400px; 
+    overflow: auto;    
+}
+.order{
+    background: radial-gradient(rgb(0, 60, 133), rgb(12, 33, 95));
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    border: 2px dotted cyan;
+    line-height: 30px;    
+}
+.order a{
+    color: cyan;
+    background: #0B0D26;
+    border-radius: 10px;
+    padding: 5px;
+}
+.user-created-puzzle{
+    background: linear-gradient(rgb(6, 69, 110),#06526e);
+    padding: 10px;   
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 5px;
+    border: 1px dashed rgb(0, 238, 255);
+}
+.user-created-puzzle a{
+    color: cyan;
+}
+.create-puzzle {
+    /* background: linear-gradient(rgb(0, 153, 255),#33b5e5); */
+    background: radial-gradient(rgb(0, 60, 133), rgb(12, 33, 95));  
+    border: 2px dotted cyan;      
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 10px;     
+    margin-top: 15px;   
+}
+.create-puzzle a{
+    color: cyan;
+    background: #0B0D26;
+    border-radius: 10px;
+    padding: 5px;
+    line-height: 30px;
 }
 /* end of index.html */
 .puzzle-info {
     margin: 10px 0;
-    background-color: #33b5e5;
-    padding: 15px;
+    background: linear-gradient(rgb(0, 153, 255),#33b5e5);
+    padding: 10px;
     text-align: center;
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 10px;        
 }
 .footer {
-    background-color: #20acdb;
+    background-color: #0d8eb9;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 10px;    
     padding: 15px;
 }
