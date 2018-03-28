@@ -64,6 +64,9 @@ input{
     padding: 5px;
     line-height: 30px;
 }
+.nav-bar a:hover {
+    background: #007da7;
+}
 /* part of puzzle.html */
 .variable-table, .graphs{
     display: inline-block;
@@ -145,6 +148,9 @@ table input {
     border-radius: 10px;
     padding: 5px;
 }
+.order a:hover {
+    background: #007da7;
+}
 .user-created-puzzle{
     background: linear-gradient(rgb(6, 69, 110),#06526e);
     padding: 10px;   
@@ -156,6 +162,9 @@ table input {
 }
 .user-created-puzzle a{
     color: cyan;
+}
+.user-created-puzzle:hover {
+    background: #002a38;
 }
 .create-puzzle {
     /* background: linear-gradient(rgb(0, 153, 255),#33b5e5); */
@@ -174,6 +183,9 @@ table input {
     border-radius: 10px;
     padding: 5px;
     line-height: 30px;
+}
+.create-puzzle a:hover {
+    background: #007da7;
 }
 /* end of index.html */
 .puzzle-info {

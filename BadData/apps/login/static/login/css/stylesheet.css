@@ -80,6 +80,9 @@ input{
     padding: 5px;
     line-height: 30px;    
 }
+.nav-bar a:hover {
+    background: #007da7;
+}
 .user_info{
     padding: 8px;
     margin-bottom: 7px;
