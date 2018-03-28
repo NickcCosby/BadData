@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from ..login.models import User
+import xml.etree.cElementTree as ET
 
 def index(request):
 	if 'user_id' not in request.session:
@@ -30,3 +31,9 @@ def wonPuzzle(request, number):
 
 def getXML(request, number):
 	return HttpResponse(open('apps/puzzles/static/puzzles/xml/'+number+'.xml').read(), content_type='text/xml')
+
+def newPuzzle(request):
+	return render(request, "puzzles/newPuzzle.html")
+
+def createPuzzle(request):
+	

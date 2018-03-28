@@ -31,7 +31,7 @@ function xmlParser(xml)
 		xAwnser[iii] = Number(xAwnser[iii])
 		yAwnser[iii] = Number(yAwnser[iii])
 	}
-	awnser = 
+	var awnser = 
 	{
 		'x':xAwnser,
 		'y':yAwnser

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Puzzle</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsep@0.3.3/build/jsep.min.js"></script>
+    <!-- {% load static %} -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="../../static/puzzles/css/stylesheet.css">
+    <!-- <script src="{% static 'puzzles/js/newPuzzle.js' %}"></script> -->
+    <!-- <script src="../../static/puzzles/js/userPuzzle.js"></script> -->
+    <script src="../../static/puzzles/js/userPuzzle.js"></script>
+    <script src="../../static/puzzles/js/newPuzzle.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="header">
+            <h1 class="title">New Puzzle</h1>
+            <p class="nav-bar"><a href="/BadData">Home: Puzzle Select</a></p>
+        </div>
+        <div class="variable-table col-6">
+            <form action="/BadData/create/" method="POST">
+                <input type="hidden" name="columnCount" class="columnCount" value="1">
+                <input type="hidden" name="rowCount" class="rowCount" value="1">
+                Puzzle Name<input type="text" name="name">
+                Default Table
+                <table>
+                    <thead>
+                        <tr class="columnDef">
+                            <th><input type="text" name="column1"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="stuff">
+                        <tr>
+                            <td><input type="text" name="column1row1"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                Awnser for X-Axis<input type="text" name="xAxisAwnser" class="xAxisAwnser">
+                Awnser for Y-Axis<input type="text" name="yAxisAwnser"class="yAxisAwnser">
+                Relationships<div class="relationships">
+                    X-Axis<input type="text" name="relationshipX"  class="relationshipX">
+                    Y-Axis<input type="text" name="relationshipY" class="relationshipY">
+                </div>
+                <input type="button" value="Update" class="update">
+                <input type="submit" value="Submit" class="submit">    
+            </form>
+        </div>
+        <div class="graphs">
+            <div class="variable-graph" id="variable-graph">
+            </div>
+            <div class="origin-graph" id="origin-graph">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
