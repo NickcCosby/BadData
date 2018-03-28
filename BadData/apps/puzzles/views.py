@@ -9,7 +9,7 @@ def index(request):
 	if 'user-puzzles' not in request.session:
 		request.session['user-puzzles'] = 'id'
 	adminCreated = Puzzle.objects.filter(creator=User.objects.get(id=1))
-	userCreated = Puzzle.objects.exclude(creator=User.objects.get(id=1))
+	userCreated = Puzzle.objects.filter(creator=User.objects.get(id=1))
 	context = {
 		"adminPuzzles" : adminCreated.order_by('id'),
 		"userPuzzles" : userCreated.order_by(request.session['user-puzzles']),
@@ -30,6 +30,10 @@ def getPuzzle(request, number):
 def wonPuzzle(request, number):
 	if 'user_id' not in request.session:
 		return redirect('/')
+	puzzle = Puzzle.objects.get(id = number)
+	puzzle.completed_by.add(User.objects.get(id=request.session['user_id']))
+	puzzle.save()
+
 	context = {
 		'number': number,
 		"user" : User.objects.get(id=request.session['user_id']),
@@ -41,13 +45,38 @@ def getXML(request, number):
 	return HttpResponse(open('apps/puzzles/static/puzzles/xml/'+number+'.xml').read(), content_type='text/xml')
 
 def orderByDate(request):
-	request.session['user-puzzles'] = 'created_at'
+	if request.session['user-puzzles'] == 'created_at':
+		request.session['user-puzzles'] = '-created_at'
+	else:
+		request.session['user-puzzles'] = 'created_at'
 	return redirect('/BadData')
 
 def orderByDifficulty(request):
-	request.session['user-puzzles'] = 'difficulty'
+	if request.session['user-puzzles'] == 'difficulty':
+		request.session['user-puzzles'] = '-difficulty'
+	else:
+		request.session['user-puzzles'] = 'difficulty'
+	return redirect('/BadData')
+
+def orderByRating(request):
+	if request.session['user-puzzles'] == 'quality_rating':
+		request.session['user-puzzles'] = '-quality_rating'
+	else:
+		request.session['user-puzzles'] = 'quality_rating'
 	return redirect('/BadData')
 
 def orderByName(request):
-	request.session['user-puzzles'] = 'name'
+	if request.session['user-puzzles'] == 'name':
+		request.session['user-puzzles'] = '-name'
+	else:
+		request.session['user-puzzles'] = 'name'
+	return redirect('/BadData')
+
+def qRate(request, number):
+	rating = Puzzle.objects.get(id = number)
+	rating.times_rated = rating.times_rated + 1
+	print rating.times_rated
+	rating.quality_rating = (rating.quality_rating + int(request.POST['qRate']))/2
+	print rating.quality_rating
+	rating.save()
 	return redirect('/BadData')

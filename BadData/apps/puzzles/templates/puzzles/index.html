@@ -31,13 +31,13 @@
             <div class="col-6">
                 <h2 class="title">User Created Puzzles</h2>
                 <div class="order">
-                    <p><a href="/BadData/date">Date Created</a> | <a href="/BadData/difficulty">Difficulty</a> | <a href="/BadData/title">Title</a></p>  
+                    <p><a href="/BadData/date">Date Created</a> | <a href="/BadData/difficulty">Difficulty</a> | <a href="/BadData/rating">User Rating</a> | <a href="/BadData/title">Title</a></p>  
                 </div>
                 <div class="user-puzzles">
                     {% for puzzle in userPuzzles %}
                         <div class="user-created-puzzle link col-6" href="/BadData/puzzle/{{puzzle.id}}">
                             <p>{{puzzle.name}}</p>
-                            <p>{{puzzle.difficulty}}/10</p>
+                            <p>Difficulty: {{puzzle.difficulty}}/10 | User Rating: {{puzzle.quality_rating}}/10</p>
                             <p>Created: {{puzzle.created_at|date:'m-d-Y'}}</p>
                             <p>Made By: <a href="/user_info/{{puzzle.creator.id}}">{{puzzle.creator.first_name}}</a></p>
                         </div>
