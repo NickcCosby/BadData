@@ -42,6 +42,7 @@ input{
     font-size: 16px;
     font-weight: bold;
     border: 2px solid rgb(0, 119, 255);
+    cursor: pointer;
 }
 .header {
     background: radial-gradient(rgb(0, 60, 133), rgb(12, 33, 95));
@@ -112,7 +113,8 @@ table input {
     background: linear-gradient(rgb(0, 153, 255),#33b5e5);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 10px;
-    text-align: center;  
+    text-align: center;
+    cursor: pointer;
 }
 .menu li:hover {
     background: #007da7;
@@ -150,6 +152,7 @@ table input {
     vertical-align: top;
     border-radius: 5px;
     border: 1px dashed rgb(0, 238, 255);
+    cursor: pointer;
 }
 .user-created-puzzle a{
     color: cyan;

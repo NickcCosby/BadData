@@ -19,15 +19,36 @@
             <div class="col-3 menu">
             </div>
             <div class="puzzle-info col-6">
-                <h2><span style="color: rgb(255, 0, 0); font-style: oblique;">Bad</span>DATA Puzzle: <span style="color:blue">{{puzzle.name}}</span> Solved!</h2>
-                <h3>Puzzle Created By: <span style="color:blue">{{puzzle.creator.first_name}}</span></h3>
+                <h2><span style="color: rgb(255, 0, 0); font-style: oblique;">Bad</span>DATA: <span style="color:blue">{{puzzle.name}}</span> Solved!</h2>
                 <br>
-                <br>            
+                <h3>Created By: <a href="/user_info/{{puzzle.creator.id}}"><span style="color:blue">{{puzzle.creator.first_name}}</span></a></h3>
+                <h3>Difficulty: {{puzzle.difficulty}}/10</h3>
+                <br>
+                <br>           
                 <h3>Your Time: ----</h3>
                 <h3>Average Time: ----</h3>
+                <h3>Best Time: ----</h3>
                 <br>
-                <h3>Rank Difficulty: -/10</h3>
-                <h3>Quality Rating: -/10</h3>
+                <br>                
+                <form action="/BadData/qRate" method="POST">
+                    {% csrf_token %}
+                    <h3>Quality Rating: 
+                        <select name="qRate">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </h3>
+                    <br>
+                    <input style="width: 100px;" class="btn" type="submit" value="Rate">
+                </form>
             </div>
             <div class="col-3 right">
             </div>
