@@ -18,30 +18,35 @@ function xmlParser(xml)
 			data[$(columns[zzz]).attr('value')].push($($(columns[zzz]).find("row").get(iii)).text())
 		}
 	}
-	console.log(data)
 	addInput(columns)
-	var xAwnser = $(xml).find('x').text().split(",");
-	var yAwnser = $(xml).find('y').text().split(",");
-	xAwnser[0] = xAwnser[0].substring(1, xAwnser.length);
-	xAwnser[xAwnser.length-1] = xAwnser[xAwnser.length-1].substring(0, xAwnser[xAwnser.length-1].length-1);
-	yAwnser[0] = yAwnser[0].substring(1, yAwnser.length);
-	yAwnser[yAwnser.length-1] = yAwnser[yAwnser.length-1].substring(0, yAwnser[yAwnser.length-1].length-1);
-	for(var iii = 0; iii < xAwnser.length; iii++)
+	var xanswer = $(xml).find("answer").find('x').text().split(",");
+	var yanswer = $(xml).find("answer").find('y').text().split(",");
+	xanswer[0] = xanswer[0].substring(1, xanswer.length);
+	xanswer[xanswer.length-1] = xanswer[xanswer.length-1].substring(0, xanswer[xanswer.length-1].length-1);
+	yanswer[0] = yanswer[0].substring(1, yanswer.length);
+	yanswer[yanswer.length-1] = yanswer[yanswer.length-1].substring(0, yanswer[yanswer.length-1].length-1);
+	for(var iii = 0; iii < xanswer.length; iii++)
 	{
-		xAwnser[iii] = Number(xAwnser[iii])
-		yAwnser[iii] = Number(yAwnser[iii])
+		xanswer[iii] = Number(xanswer[iii])
+		yanswer[iii] = Number(yanswer[iii])
 	}
-	var awnser = 
+	var answer = 
 	{
-		'x':xAwnser,
-		'y':yAwnser
+		'x':xanswer,
+		'y':yanswer
 	}
-	awnserGraph(awnser);
-	updateGraph(data, awnser);
+	var relationships = 
+	{
+		'x':$(xml).find('relationships').find('x').text(),
+		'y':$(xml).find('relationships').find('y').text()
+	}
+	answerGraph(answer);
+	updateGraph(data, answer, relationships);
 
 	$(".submit").click(function()
 	{
 		data = {}
+		
 		columns.each(function()
 		{
 			data[$(this).attr("value")] = [];
@@ -62,7 +67,7 @@ function xmlParser(xml)
 				data[key].pop()
 			}
 		}
-		if(updateGraph(data, awnser))
+		if(updateGraph(data, answer, relationships))
 		{
 			window.location.href= "win/"
 		}

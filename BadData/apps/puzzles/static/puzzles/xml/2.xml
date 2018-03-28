@@ -8,4 +8,8 @@
         <y>[4, 8, 12, 18]</y>
         <x>[1,2,3,4]</x>
     </answer>
+	<relationships>
+		<x>id</x>
+		<y>(count % 12) * 2</y>
+	</relationships>
 </puzzle>

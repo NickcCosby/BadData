@@ -24,9 +24,11 @@
         </div>
         <div class="variable-table col-6">
             <form action="/BadData/create/" method="POST">
+                {% csrf_token %}
                 <input type="hidden" name="columnCount" class="columnCount" value="1">
                 <input type="hidden" name="rowCount" class="rowCount" value="1">
                 Puzzle Name<input type="text" name="name">
+                Difficulty (1-10) <input type="number" name="difficulty">
                 Default Table
                 <table>
                     <thead>
@@ -40,8 +42,8 @@
                         </tr>
                     </tbody>
                 </table>
-                Awnser for X-Axis<input type="text" name="xAxisAwnser" class="xAxisAwnser">
-                Awnser for Y-Axis<input type="text" name="yAxisAwnser"class="yAxisAwnser">
+                answer for X-Axis<input type="text" name="xAxisanswer" class="xAxisanswer">
+                answer for Y-Axis<input type="text" name="yAxisanswer"class="yAxisanswer">
                 Relationships<div class="relationships">
                     X-Axis<input type="text" name="relationshipX"  class="relationshipX">
                     Y-Axis<input type="text" name="relationshipY" class="relationshipY">

@@ -41,13 +41,28 @@ def wonPuzzle(request, number):
 def getXML(request, number):
 	return HttpResponse(open('apps/puzzles/static/puzzles/xml/'+number+'.xml').read(), content_type='text/xml')
 
-<<<<<<< HEAD
 def newPuzzle(request):
 	return render(request, "puzzles/newPuzzle.html")
 
 def createPuzzle(request):
-	
-=======
+	#create xml file
+	puzzle = ET.Element("puzzle")
+	table = ET.SubElement(puzzle, "table")
+	for iii in range(1, int(request.POST['columnCount'])):
+		column = ET.SubElement(table, "column", value=request.POST['column' + str(iii)])
+		for zzz in range(1, int(request.POST['rowCount'])):
+			ET.SubElement(column, "row").text = request.POST['column'+str(iii)+'row'+str(zzz)]
+	answer = ET.SubElement(puzzle, "answer")
+	ET.SubElement(answer, "y").text = request.POST['yAxisanswer']
+	ET.SubElement(answer, 'x').text = request.POST['xAxisanswer']
+	relationships = ET.SubElement(puzzle, "relationships")
+	ET.SubElement(relationships, 'y').text = request.POST['relationshipX']
+	ET.SubElement(relationships, 'x').text = request.POST['relationshipY']
+	tree = ET.ElementTree(puzzle)
+	newPuzzle = Puzzle.objects.create(name=request.POST['name'], quality_rating=0, difficulty=request.POST['difficulty'], creator=User.objects.get(id=request.session['user_id']))
+	tree.write("apps/puzzles/static/puzzles/xml/"+ str(newPuzzle.id) +".xml")
+	return redirect('/BadData')
+
 def orderByDate(request):
 	request.session['user-puzzles'] = 'created_at'
 	return redirect('/BadData')
@@ -59,4 +74,3 @@ def orderByDifficulty(request):
 def orderByName(request):
 	request.session['user-puzzles'] = 'name'
 	return redirect('/BadData')
->>>>>>> master

@@ -40,30 +40,30 @@ function update()
             data[$($(".columnDef th")[iii]).find("input").val()].push($($($(".stuff tr")[zzz]).find("td")[iii]).find("input").val())
         }
     }
-    if($(".xAxisAwnser").val() != "" && $(".yAxisAwnser").val() != "")
+    if($(".xAxisanswer").val() != "" && $(".yAxisanswer").val() != "")
     {
-        var xAwnser = $(".xAxisAwnser").val().split(",");
-        var yAwnser = $(".yAxisAwnser").val().split(",");
-        xAwnser[0] = xAwnser[0].substring(1, xAwnser.length);
-        xAwnser[xAwnser.length-1] = xAwnser[xAwnser.length-1].substring(0, xAwnser[xAwnser.length-1].length-1);
-        yAwnser[0] = yAwnser[0].substring(1, yAwnser.length);
-        yAwnser[yAwnser.length-1] = yAwnser[yAwnser.length-1].substring(0, yAwnser[yAwnser.length-1].length-1);
-        for(var iii = 0; iii < xAwnser.length; iii++)
+        var xanswer = $(".xAxisanswer").val().split(",");
+        var yanswer = $(".yAxisanswer").val().split(",");
+        xanswer[0] = xanswer[0].substring(1, xanswer.length);
+        xanswer[xanswer.length-1] = xanswer[xanswer.length-1].substring(0, xanswer[xanswer.length-1].length-1);
+        yanswer[0] = yanswer[0].substring(1, yanswer.length);
+        yanswer[yanswer.length-1] = yanswer[yanswer.length-1].substring(0, yanswer[yanswer.length-1].length-1);
+        for(var iii = 0; iii < xanswer.length; iii++)
         {
-            xAwnser[iii] = Number(xAwnser[iii])
-            yAwnser[iii] = Number(yAwnser[iii])
+            xanswer[iii] = Number(xanswer[iii])
+            yanswer[iii] = Number(yanswer[iii])
         }
-        var awnser = 
+        var answer = 
         {
-            'x':xAwnser,
-            'y':yAwnser
+            'x':xanswer,
+            'y':yanswer
         }
         var relationships = 
         {
             'x':$(".relationshipX").val(),
             'y':$(".relationshipY").val()
         }
-        updateGraph(data, awnser, relationships);
-        awnserGraph(awnser);
+        updateGraph(data, answer, relationships);
+        answerGraph(answer);
     }
 }
