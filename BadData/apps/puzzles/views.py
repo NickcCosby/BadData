@@ -56,8 +56,8 @@ def createPuzzle(request):
 	ET.SubElement(answer, "y").text = request.POST['yAxisanswer']
 	ET.SubElement(answer, 'x').text = request.POST['xAxisanswer']
 	relationships = ET.SubElement(puzzle, "relationships")
-	ET.SubElement(relationships, 'y').text = request.POST['relationshipX']
-	ET.SubElement(relationships, 'x').text = request.POST['relationshipY']
+	ET.SubElement(relationships, 'x').text = request.POST['relationshipX']
+	ET.SubElement(relationships, 'y').text = request.POST['relationshipY']
 	tree = ET.ElementTree(puzzle)
 	newPuzzle = Puzzle.objects.create(name=request.POST['name'], quality_rating=0, difficulty=request.POST['difficulty'], creator=User.objects.get(id=request.session['user_id']))
 	tree.write("apps/puzzles/static/puzzles/xml/"+ str(newPuzzle.id) +".xml")
