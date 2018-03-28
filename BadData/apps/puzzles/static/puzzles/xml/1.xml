@@ -9,4 +9,8 @@
         <y>[10,8,6,4]</y>
         <x>[1,2,3,4]</x>
     </answer>
+    <relationships>
+        <y>name.length</y>
+        <x>id</x>
+    </relationships>
 </puzzle>
