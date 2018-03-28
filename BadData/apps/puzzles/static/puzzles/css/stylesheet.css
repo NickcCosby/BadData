@@ -10,7 +10,7 @@
 }
 [class*="col-"] {
     float: left;
-    padding: 15px;
+    padding: 10px;
 }
 html {
     font-family: "Lucida Sans", sans-serif;
@@ -45,7 +45,7 @@ input{
 }
 .header {
     background: radial-gradient(rgb(0, 60, 133), rgb(12, 33, 95));
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     border-radius: 10px;
     margin-top: 10px;  
@@ -56,12 +56,12 @@ input{
 }
 .nav-bar{
     text-align: right;
-    margin-top: 5px;
 }
 .nav-bar a{
     background: #0B0D26;
     border-radius: 10px;
     padding: 5px;
+    line-height: 30px;
 }
 /* part of puzzle.html */
 .variable-table, .graphs{
@@ -119,7 +119,7 @@ table input {
 }
 .user-puzzles{
     background: linear-gradient(rgb(0, 153, 255),#33b5e5);
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -129,41 +129,54 @@ table input {
 }
 .order{
     background: radial-gradient(rgb(0, 60, 133), rgb(12, 33, 95));
-    padding: 15px;
+    padding: 5px;
     text-align: center;
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 10px;
-    margin-top: 10px;
     border: 2px dotted cyan;
+    line-height: 30px;    
 }
 .order a{
-    color: white;
+    color: cyan;
     background: #0B0D26;
     border-radius: 10px;
     padding: 5px;
 }
 .user-created-puzzle{
     background: linear-gradient(rgb(6, 69, 110),#06526e);
-    padding: 15px;   
+    padding: 10px;   
     display: inline-block;
     vertical-align: top;
     border-radius: 5px;
-    border: 1px dashed blue;
+    border: 1px dashed rgb(0, 238, 255);
+}
+.user-created-puzzle a{
+    color: cyan;
 }
 .create-puzzle {
-    background: linear-gradient(rgb(0, 153, 255),#33b5e5);
-    padding: 15px;
+    /* background: linear-gradient(rgb(0, 153, 255),#33b5e5); */
+    background: radial-gradient(rgb(0, 60, 133), rgb(12, 33, 95));  
+    border: 2px dotted cyan;      
+    padding: 10px;
     text-align: center;
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 10px;        
+    border-radius: 10px;     
+    margin-top: 15px;   
+}
+.create-puzzle a{
+    color: cyan;
+    background: #0B0D26;
+    border-radius: 10px;
+    padding: 5px;
+    line-height: 30px;
 }
 /* end of index.html */
 .puzzle-info {
     margin: 10px 0;
     background: linear-gradient(rgb(0, 153, 255),#33b5e5);
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
