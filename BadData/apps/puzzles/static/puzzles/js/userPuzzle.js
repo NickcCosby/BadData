@@ -18,7 +18,8 @@ function updateGraph(data, answer, relationships)
     {
         x:x,
         y:y,
-        type:"scatter"
+		type:"scatter",
+		marker:{size:10}
 	};
     var layout = 
     {
@@ -32,7 +33,8 @@ function updateGraph(data, answer, relationships)
 			r: 30,
 			b: 30,
 			t: 30
-		}
+		},
+		title:"Variable Graph"
     }
 	Plotly.newPlot('variable-graph', [trace1],layout, {displayModeBar: false, staticPlot:true});
 	if (compareFunction(x, answer['x']) && compareFunction(y, answer['y']))
@@ -120,7 +122,9 @@ function answerGraph(answer)
     {
         x:answer['x'],
         y:answer['y'],
-        type:"scatter"
+		type:"scatter",
+		marker:{size: 10}
+		
 	};
 	var layout = 
 	{
@@ -132,7 +136,9 @@ function answerGraph(answer)
 			r: 30,
 			b: 30,
 			t: 30
-		}
+		},
+		title:"Target Graph"
+
 	}
     Plotly.newPlot('origin-graph', [trace1], layout,{displayModeBar: false, staticPlot:true});
 }

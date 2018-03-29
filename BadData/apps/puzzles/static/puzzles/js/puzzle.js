@@ -99,4 +99,11 @@ function documentReady(puzzle)
 	{
 		$(".submit").click();
 	});
+	$(".origin-graph").hover(function()
+	{
+		$(".tutorial").text("Get the Variable Graph to look exactly like the Target Graph, including the dots")
+	}, function()
+	{
+		$(".tutorial").text("")
+	})
 }
