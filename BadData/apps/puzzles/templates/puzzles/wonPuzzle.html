@@ -30,7 +30,7 @@
                 <h3>Best Time: ----</h3>
                 <br>
                 <br>                
-                <form action="/BadData/qRate" method="POST">
+                <form action="/BadData/qRate/{{puzzle.id}}" method="POST">
                     {% csrf_token %}
                     <h3>Quality Rating: 
                         <select name="qRate">

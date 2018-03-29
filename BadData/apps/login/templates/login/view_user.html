@@ -7,6 +7,8 @@
     <title>View User</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'login/css/stylesheet.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'login/js/jQuery.js' %}"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -24,11 +26,12 @@
                 </div>
                 <ul>
                 {% for puzzle in puzzles %}
-                    <li class="col-6"><a href="/BadData/puzzle/{{puzzle.id}}">
+                    <li class="link col-6" href="/BadData/puzzle/{{puzzle.id}}"><a href="/BadData/puzzle/{{puzzle.id}}">
                         <h3><span style="color:rgb(5, 43, 148)">{{puzzle.name}}</span></h3>
+                        <p><span style="color:white">Created On:</span> {{puzzle.created_at|date:'m-d-Y'}}</p></a>                        
                         <p><span style="color:white">Difficulty:</span> {{puzzle.difficulty}}/10</p>
                         <p><span style="color:white">User Rating:</span> {{puzzle.quality_rating}}/10</p>
-                        <p><span style="color:white">Created On:</span> {{puzzle.created_at|date:'m-d-Y'}}</p></a>
+                        <p><span style="color:white">Total Ratings:</span> {{puzzle.times_rated}}</p>                        
                     </li>
                 {% endfor %}
                 </ul>
