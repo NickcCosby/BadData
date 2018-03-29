@@ -50,7 +50,7 @@ def view_user(request, id):
     context = {
         "user" : User.objects.get(id=id),
         "puzzles" : Puzzle.objects.filter(creator=User.objects.get(id=id)),
-        # "count" : len(Puzzle.objects.filter(creator=User.objects.get(id=id))),
+        "count" : len(Puzzle.objects.filter(creator=User.objects.get(id=id))),
         "current_user" : User.objects.get(id=request.session['user_id']),
     }
     return render(request,'login/view_user.html',context)
