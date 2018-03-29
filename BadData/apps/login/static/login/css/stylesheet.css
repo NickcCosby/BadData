@@ -110,6 +110,18 @@ input{
 .usermade_puzzles li:hover{
     background: #007da7;
 }
+.delete_puzzle{
+    text-align: center;
+}
+.delete_puzzle a{
+    background: rgb(1, 36, 114);
+    border-radius: 10px;
+    padding: 5px;
+    line-height: 30px;    
+}
+.delete_puzzle a:hover{
+    background: rgb(89, 140, 250);
+}
 .footer{
     background-color: #20acdb;
     text-align: center;

@@ -13,7 +13,7 @@
 <body>
     <div id="wrapper">
         <div class="header">
-            <h1 class="title">User: {{user.first_name}}</h1>
+            <h1 class="title">User: <span style="color:rgb(177, 246, 255)">{{user.first_name}}</span></h1>
             <p class="nav-bar"><a href="/logout">Logout</a> | <a href="/BadData">Home: Puzzle Select</a></p>
         </div>
         <div class="row">
@@ -26,12 +26,14 @@
                 </div>
                 <ul>
                 {% for puzzle in puzzles %}
-                    <li class="link col-6" href="/BadData/puzzle/{{puzzle.id}}"><a href="/BadData/puzzle/{{puzzle.id}}">
+                    <li class="link col-6" href="/BadData/puzzle/{{puzzle.id}}">
                         <h3><span style="color:rgb(5, 43, 148)">{{puzzle.name}}</span></h3>
-                        <p><span style="color:white">Created On:</span> {{puzzle.created_at|date:'m-d-Y'}}</p></a>                        
-                        <p><span style="color:white">Difficulty:</span> {{puzzle.difficulty}}/10</p>
-                        <p><span style="color:white">User Rating:</span> {{puzzle.quality_rating}}/10</p>
-                        <p><span style="color:white">Total Ratings:</span> {{puzzle.times_rated}}</p>                        
+                        <p>Created On: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.created_at|date:'m-d-Y'}}</span></p>                      
+                        <p>Difficulty: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.difficulty}}/10</span> | User Rating: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.quality_rating}}/10</span></p>
+                        <!-- <p>Total Times Rated: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.times_rated}}</span></p> -->
+                        {% if user.id == current_user.id %}
+                            <p class="delete_puzzle"><a href="/BadData/delete/{{puzzle.id}}"><span style="color:red">Delete Puzzle</span></a></p>
+                        {% endif %}                  
                     </li>
                 {% endfor %}
                 </ul>

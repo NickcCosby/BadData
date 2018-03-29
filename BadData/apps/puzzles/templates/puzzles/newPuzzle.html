@@ -8,13 +8,13 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsep@0.3.3/build/jsep.min.js"></script>
-    <!-- {% load static %} -->
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}"> -->
-    <link rel="stylesheet" type="text/css" href="../../static/puzzles/css/stylesheet.css">
-    <!-- <script src="{% static 'puzzles/js/newPuzzle.js' %}"></script> -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'puzzles/css/stylesheet.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="../../static/puzzles/css/stylesheet.css"> -->
+    <script src="{% static 'puzzles/js/newPuzzle.js' %}"></script>
+    <script src="{% static 'puzzles/js/userPuzzle.js' %}"></script>    
     <!-- <script src="../../static/puzzles/js/userPuzzle.js"></script> -->
-    <script src="../../static/puzzles/js/userPuzzle.js"></script>
-    <script src="../../static/puzzles/js/newPuzzle.js"></script>
+    <!-- <script src="../../static/puzzles/js/newPuzzle.js"></script> -->
 </head>
 <body>
     <div id="wrapper">
@@ -23,37 +23,40 @@
             <p class="nav-bar"><a href="/BadData">Home: Puzzle Select</a></p>
         </div>
         <div class="variable-table col-6">
-            <form action="/BadData/create/" method="POST">
-                {% csrf_token %}
-                <div class="errors"></div>
-                <input type="hidden" name="columnCount" class="columnCount" value="1">
-                <input type="hidden" name="rowCount" class="rowCount" value="1">
-                Puzzle Name<input type="text" name="name" class="name">
-                Difficulty (1-10) <input type="number" name="difficulty" class="difficulty" min="1" max="10">
-                Default Table
-                <table>
-                    <thead>
-                        <tr class="columnDef">
-                            <th><input type="text" name="column1"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="stuff">
-                        <tr>
-                            <td><input type="text" name="column1row1"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                answer for X-Axis<input type="text" name="xAxisanswer" class="xAxisanswer">
-                answer for Y-Axis<input type="text" name="yAxisanswer"class="yAxisanswer">
-                Relationships<div class="relationships">
-                    X-Axis<input type="text" name="relationshipX"  class="relationshipX">
-                    Y-Axis<input type="text" name="relationshipY" class="relationshipY">
-                </div>
-                <input type="button" value="Update" class="update">
-                <input type="button" value="Submit" class="submit" onclick="submitPuzzle()">    
-            </form>
+            <div class="newPuzzleInput">
+                <form action="/BadData/create/" method="POST">
+                    {% csrf_token %}
+                    <div class="errors"></div>
+                    <input type="hidden" name="columnCount" class="columnCount" value="1">
+                    <input type="hidden" name="rowCount" class="rowCount" value="1">
+                    <p class="col-6">Puzzle Name<input type="text" name="name" class="name"></p>
+                    <p class="col-6">Difficulty (1-10) <input type="number" name="difficulty" class="difficulty" min="1" max="10"></p>
+                    <h4 class="title">Default Table</h4>
+                    <table>
+                        <thead>
+                            <tr class="columnDef">
+                                <th><input type="text" name="column1"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="stuff">
+                            <tr>
+                                <td><input type="text" name="column1row1"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="col-6">Answer for X-Axis<input type="text" name="xAxisanswer" class="xAxisanswer"></p>
+                    <p class="col-6">Answer for Y-Axis<input type="text" name="yAxisanswer"class="yAxisanswer"></p>
+                    <div class="relationships">
+                        <h4 class="title">Relationships</h4>
+                        <p class="col-6">X-Axis<input type="text" name="relationshipX"  class="relationshipX"></p>
+                        <p class="col-6">Y-Axis<input type="text" name="relationshipY" class="relationshipY"></p>
+                    </div>
+                    <input type="button" value="Update" class="update btn">
+                    <input type="button" value="Submit" class="submit btn" onclick="submitPuzzle()">    
+                </form>
+            </div>
         </div>
-        <div class="graphs">
+        <div class="graphs col-6">
             <div class="variable-graph" id="variable-graph">
             </div>
             <div class="origin-graph" id="origin-graph">

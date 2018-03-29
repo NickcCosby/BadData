@@ -103,3 +103,7 @@ def qRate(request, number):
 	print rating.quality_rating
 	rating.save()
 	return redirect('/BadData')
+
+def deletePuzzle(request, number):
+	Puzzle.objects.remove(Puzzle.objects.get(id=number))
+	return redirect('/user_info/'+int(request.session['user_id']))

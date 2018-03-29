@@ -20,7 +20,9 @@
         </div>
         <div class="row">
             <div class="default-puzzles col-6 menu">
-                <h2 class="title">Default Puzzles</h2>
+                <div class="order">
+                    <h2 class="title">Default Puzzles</h2>
+                </div>
                 <ul>
                     {% for puzzle in adminPuzzles %}
                         <li class="link col-6" href="/BadData/puzzle/{{puzzle.id}}">
@@ -31,12 +33,11 @@
                             {% endfor %}
                             <a href="/BadData/puzzle/{{puzzle.id}}"><span style="color:white">{{puzzle.name}}</span> Play</a></li>
                     {% endfor %}
-                    <li class="col-6"><a href="/BadData/puzzle/1/win"><span style="color:white">Win Puzzle Temp</span> Play</a></li>
                 </ul>
             </div>
             <div class="col-6">
-                <h2 class="title">User Created Puzzles</h2>
                 <div class="order">
+                    <h2 class="title">User Created Puzzles</h2>
                     <p><a href="/BadData/date">Date Created</a> | <a href="/BadData/difficulty">Difficulty</a> | <a href="/BadData/rating">User Rating</a> | <a href="/BadData/title">Title</a></p>  
                 </div>
                 <div class="user-puzzles">
