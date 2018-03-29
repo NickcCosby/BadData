@@ -13,4 +13,5 @@ urlpatterns = [
 	url(r'^difficulty$', views.orderByDifficulty),
 	url(r'^rating$', views.orderByRating),
 	url(r'^title$', views.orderByName),
+	url(r'^delete/(?P<number>[0-9]+)$', views.deletePuzzle),	
 ]

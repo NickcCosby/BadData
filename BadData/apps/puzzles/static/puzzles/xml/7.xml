@@ -1,1 +1,0 @@
-<puzzle><table><column value="id"><row>1</row></column><column value="cost"><row>2</row></column></table><answer><y>[1,2,3,4,5]</y><x>[1,2,3,4,5]</x></answer><relationships><x>id</x><y>cost</y></relationships></puzzle>

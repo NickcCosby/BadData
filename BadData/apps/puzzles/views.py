@@ -5,6 +5,7 @@ import xml.etree.cElementTree as ET
 from models import *
 import datetime
 import math
+import os
 
 def index(request):
 	if 'user_id' not in request.session:
@@ -120,5 +121,6 @@ def qRate(request, number):
 	return redirect('/BadData')
 
 def deletePuzzle(request, number):
-	Puzzle.objects.remove(Puzzle.objects.get(id=number))
-	return redirect('/user_info/'+int(request.session['user_id']))
+	Puzzle.objects.get(id=number).delete()
+	os.remove("apps/puzzles/static/puzzles/xml/"+ str(number) +".xml")
+	return redirect('/user_info/'+str(request.session['user_id']))
