@@ -15,12 +15,24 @@
     <script src="{% static 'puzzles/js/userPuzzle.js' %}"></script>    
     <!-- <script src="../../static/puzzles/js/userPuzzle.js"></script> -->
     <!-- <script src="../../static/puzzles/js/newPuzzle.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'puzzles/js/jQuery.js' %}"></script>
 </head>
 <body>
     <div id="wrapper">
         <div class="header">
-            <h1 class="title">New Puzzle</h1>
+            <h1 class="title">Create: New Puzzle</h1>
             <p class="nav-bar"><a href="/BadData">Home: Puzzle Select</a></p>
+        </div>
+        <div class="col-12 creationInstructions">
+            <h2 class="title">Show/Hide Instructions</h2>
+            <p><span style="color:cyan;">Puzzle Name:</span> Name of puzzle you are creating.</p>
+            <p><span style="color:cyan;">Difficulty:</span> How difficult is your puzzle?</p>
+            <p><span style="color:cyan;">Default Table:</span> Table shown to player when puzzle is loaded. Top row of inputs are the labels used on the table. Press update when a value is in the input to create another column and/or row. Only filled inputs will be used on Puzzle Submit.</p>
+            <p><span style="color:cyan;">Answer X-Axis and Y-Axis:</span> Must use a <span style="color:orange">number</span> seperated by a <span style="color:orange">comma</span> ( , ). Both X and Y total number of values must equal. Total amount of values equates to the number of rows the player must correctly answer. i.e. X-Axis of <span style="color:orange">1,2,3,4</span> and Y-Axis of <span style="color:orange">2,33,2,33</span> </p>
+            <p><span style="color:cyan;">Relationship X-Axis and Y-Axis:</span> This is the formula used by the program to equate the Player's input to what is plotted and compared to the answer. i.e. If we use a Y-Axis relationship of <span style="color:orange">(columnName % 2)+3</span> then columnName would be the label of one column in the table and if the player inputs a number such as <span style="color:orange">2</span>  then the point plotted on the Y-Axis would be <span style="color:orange">3</span></p>
+            <p><span style="color:cyan;">Update Button:</span> Updates the current page by adding more rows/columns to the Default Table if there are values entered and creates example graph using the Default Table data and an answer graph with the X-Axis and Y-Axis answers.</p>
+            <p><span style="color:cyan;">Submit Button:</span> Ceates a puzzle based on the information input so long as it passes the basic error checks.</p>   
         </div>
         <div class="variable-table col-6">
             <div class="newPuzzleInput">

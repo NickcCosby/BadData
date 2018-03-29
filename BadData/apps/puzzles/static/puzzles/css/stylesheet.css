@@ -83,7 +83,6 @@ input{
     font-size: 14px;            
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 10px;
-    /* padding: 10px;       */
 }
 table{
     background: linear-gradient(rgb(0, 153, 255),#33b5e5);    
@@ -201,8 +200,21 @@ th, td {
     text-align: center;
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 10px;   
+}
+.creationInstructions{
+    background: radial-gradient(rgb(0, 60, 133), rgb(12, 33, 95));  
+    border: 2px dotted cyan;      
+    padding: 10px;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 10px;     
-    margin-top: 15px;  
+    margin-top: 15px;
+    cursor: pointer;
+}
+.creationInstructions p{
+    margin-top: 5px;
+    display: none;
 }
 .footer {
     background-color: #0d8eb9;

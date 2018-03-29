@@ -4,4 +4,7 @@ $(document).ready(function () {
             window.location = $(this).attr("href")
         }
     });
+    $(".creationInstructions").click(function () {
+        $(".creationInstructions p").toggle();
+    });
 })
