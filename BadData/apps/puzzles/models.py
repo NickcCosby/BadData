@@ -11,6 +11,7 @@ class Puzzle(models.Model):
     difficulty = models.IntegerField()
     creator = models.ForeignKey(User, related_name="puzzles_created")
     completed_by = models.ManyToManyField(User, related_name="puzzles_completed")
+    rated_by = models.ManyToManyField(User, related_name="puzzles_rated")
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     def __repr__(self):

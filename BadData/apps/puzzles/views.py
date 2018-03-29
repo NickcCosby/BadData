@@ -34,11 +34,15 @@ def wonPuzzle(request, number):
 	puzzle = Puzzle.objects.get(id = number)
 	puzzle.completed_by.add(User.objects.get(id=request.session['user_id']))
 	puzzle.save()
-
+	if len(puzzle.rated_by.filter(id=request.session['user_id'])) == 0:
+		rated = True
+	else:
+		rated = False
 	context = {
 		'number': number,
 		"user" : User.objects.get(id=request.session['user_id']),
 		'puzzle' : Puzzle.objects.get(id = number),
+		'rated' :rated
 	}
 	return render(request, "puzzles/wonPuzzle.html", context)
 
@@ -63,7 +67,7 @@ def createPuzzle(request):
 	ET.SubElement(relationships, 'x').text = request.POST['relationshipX']
 	ET.SubElement(relationships, 'y').text = request.POST['relationshipY']
 	tree = ET.ElementTree(puzzle)
-	newPuzzle = Puzzle.objects.create(name=request.POST['name'], quality_rating=0, difficulty=request.POST['difficulty'], creator=User.objects.get(id=request.session['user_id']))
+	newPuzzle = Puzzle.objects.create(name=request.POST['name'], quality_rating=0, times_rated = 0,difficulty=request.POST['difficulty'], creator=User.objects.get(id=request.session['user_id']))
 	tree.write("apps/puzzles/static/puzzles/xml/"+ str(newPuzzle.id) +".xml")
 	return redirect('/BadData')
 
@@ -97,9 +101,12 @@ def orderByName(request):
 
 def qRate(request, number):
 	rating = Puzzle.objects.get(id = number)
-	rating.times_rated = rating.times_rated + 1
-	print rating.times_rated
-	rating.quality_rating = (rating.quality_rating + int(request.POST['qRate']))/2
-	print rating.quality_rating
-	rating.save()
+	if len(rating.rated_by.filter(id=request.session['user_id'])) == 0:
+		rating.times_rated = rating.times_rated + 1
+		# if rating.quality_rating == 0:
+		# 	rating.quality_rating = int(request.POST['qRate'])
+		# else:
+		rating.quality_rating = ((rating.quality_rating * (rating.times_rated -1)) + int(request.POST['qRate']))/rating.times_rated
+		rating.rated_by.add(User.objects.get(id=request.session['user_id']))
+		rating.save()
 	return redirect('/BadData')
