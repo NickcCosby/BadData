@@ -93,6 +93,10 @@ function documentReady(puzzle)
 		success: xmlParser
 	}).fail(function()
 	{
-		alert("blah");
+		alert("Puzzle info failed to load. Does the puzzle you're trying to access exist?");
+	});
+	$(window).resize(function()
+	{
+		$(".submit").click();
 	});
 }

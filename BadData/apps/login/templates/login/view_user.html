@@ -30,7 +30,7 @@
                         <h3><span style="color:rgb(5, 43, 148)">{{puzzle.name}}</span></h3>
                         <p>Created On: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.created_at|date:'m-d-Y'}}</span></p>                      
                         <p>Difficulty: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.difficulty}}/10</span> | User Rating: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.quality_rating}}/10</span></p>
-                        <!-- <p>Total Times Rated: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.times_rated}}</span></p> -->
+                        <p>Total Times Rated: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.times_rated}}</span></p>
                         {% if user.id == current_user.id %}
                             <p class="delete_puzzle"><a href="/BadData/delete/{{puzzle.id}}"><span style="color:red">Delete Puzzle</span></a></p>
                         {% endif %}                  

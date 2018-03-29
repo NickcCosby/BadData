@@ -25,9 +25,10 @@
                 <h3>Difficulty: {{puzzle.difficulty}}/10</h3>
                 <br>
                 <br>           
-                <h3>Your Time: ----</h3>
+                <h3>Your Time: {{time}}</h3>
                 <br>
                 <br>                
+                {% if rated == True %}
                 <form action="/BadData/qRate/{{puzzle.id}}" method="POST">
                     {% csrf_token %}
                     <h3>Quality Rating: 
@@ -47,6 +48,7 @@
                     <br>
                     <input style="width: 100px;" class="btn" type="submit" value="Rate">
                 </form>
+                {% endif %}
             </div>
             <div class="col-3 right">
             </div>

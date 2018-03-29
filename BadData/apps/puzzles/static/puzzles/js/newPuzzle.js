@@ -23,6 +23,10 @@ $(document).ready(function()
             return false;
         }
     });
+    $(window).resize(function()
+    {
+       update(); 
+    });
 });
 
 function update()

@@ -3,6 +3,8 @@ from django.contrib import messages
 from ..login.models import User
 import xml.etree.cElementTree as ET
 from models import *
+import datetime
+import math
 
 def index(request):
 	if 'user_id' not in request.session:
@@ -26,20 +28,33 @@ def getPuzzle(request, number):
 		'url' : 'puzzles/js/'+str(number)+'.js',
 		'puzzle' : Puzzle.objects.get(id = number),
 	}
+	request.session['startTime'] = str(datetime.datetime.now())
 	return render(request, "puzzles/puzzle.html", context)
 
 def wonPuzzle(request, number):
 	if 'user_id' not in request.session:
 		return redirect('/')
+	if 'startTime' not in request.session:
+		return redirect('/BadData/puzzle/' + str(number) + '/')
 	puzzle = Puzzle.objects.get(id = number)
 	puzzle.completed_by.add(User.objects.get(id=request.session['user_id']))
 	puzzle.save()
-
+	if len(puzzle.rated_by.filter(id=request.session['user_id'])) == 0:
+		rated = True
+	else:
+		rated = False
+	delta = datetime.datetime.now() - datetime.datetime.strptime(request.session['startTime'], "%Y-%m-%d %H:%M:%S.%f")
+	minutes = int(math.floor(delta.seconds / 60))
+	seconds = int(delta.seconds % 60)
+	time = "{} minutes {} seconds".format(minutes, seconds)
 	context = {
 		'number': number,
 		"user" : User.objects.get(id=request.session['user_id']),
 		'puzzle' : Puzzle.objects.get(id = number),
+		'rated' :rated,
+		'time':time
 	}
+	del request.session['startTime']
 	return render(request, "puzzles/wonPuzzle.html", context)
 
 def getXML(request, number):
@@ -63,7 +78,7 @@ def createPuzzle(request):
 	ET.SubElement(relationships, 'x').text = request.POST['relationshipX']
 	ET.SubElement(relationships, 'y').text = request.POST['relationshipY']
 	tree = ET.ElementTree(puzzle)
-	newPuzzle = Puzzle.objects.create(name=request.POST['name'], quality_rating=0, difficulty=request.POST['difficulty'], creator=User.objects.get(id=request.session['user_id']))
+	newPuzzle = Puzzle.objects.create(name=request.POST['name'], quality_rating=0, times_rated = 0,difficulty=request.POST['difficulty'], creator=User.objects.get(id=request.session['user_id']))
 	tree.write("apps/puzzles/static/puzzles/xml/"+ str(newPuzzle.id) +".xml")
 	return redirect('/BadData')
 
@@ -97,11 +112,11 @@ def orderByName(request):
 
 def qRate(request, number):
 	rating = Puzzle.objects.get(id = number)
-	rating.times_rated = rating.times_rated + 1
-	print rating.times_rated
-	rating.quality_rating = (rating.quality_rating + int(request.POST['qRate']))/2
-	print rating.quality_rating
-	rating.save()
+	if len(rating.rated_by.filter(id=request.session['user_id'])) == 0:
+		rating.times_rated = rating.times_rated + 1
+		rating.quality_rating = ((rating.quality_rating * (rating.times_rated -1)) + int(request.POST['qRate']))/rating.times_rated
+		rating.rated_by.add(User.objects.get(id=request.session['user_id']))
+		rating.save()
 	return redirect('/BadData')
 
 def deletePuzzle(request, number):
