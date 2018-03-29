@@ -3,6 +3,8 @@ from django.contrib import messages
 from ..login.models import User
 import xml.etree.cElementTree as ET
 from models import *
+import datetime
+import math
 
 def index(request):
 	if 'user_id' not in request.session:
@@ -26,11 +28,14 @@ def getPuzzle(request, number):
 		'url' : 'puzzles/js/'+str(number)+'.js',
 		'puzzle' : Puzzle.objects.get(id = number),
 	}
+	request.session['startTime'] = str(datetime.datetime.now())
 	return render(request, "puzzles/puzzle.html", context)
 
 def wonPuzzle(request, number):
 	if 'user_id' not in request.session:
 		return redirect('/')
+	if 'startTime' not in request.session:
+		return redirect('/BadData/puzzle/' + str(number) + '/')
 	puzzle = Puzzle.objects.get(id = number)
 	puzzle.completed_by.add(User.objects.get(id=request.session['user_id']))
 	puzzle.save()
@@ -38,12 +43,18 @@ def wonPuzzle(request, number):
 		rated = True
 	else:
 		rated = False
+	delta = datetime.datetime.now() - datetime.datetime.strptime(request.session['startTime'], "%Y-%m-%d %H:%M:%S.%f")
+	minutes = int(math.floor(delta.seconds / 60))
+	seconds = int(delta.seconds % 60)
+	time = "{} minutes {} seconds".format(minutes, seconds)
 	context = {
 		'number': number,
 		"user" : User.objects.get(id=request.session['user_id']),
 		'puzzle' : Puzzle.objects.get(id = number),
-		'rated' :rated
+		'rated' :rated,
+		'time':time
 	}
+	del request.session['startTime']
 	return render(request, "puzzles/wonPuzzle.html", context)
 
 def getXML(request, number):
@@ -103,9 +114,6 @@ def qRate(request, number):
 	rating = Puzzle.objects.get(id = number)
 	if len(rating.rated_by.filter(id=request.session['user_id'])) == 0:
 		rating.times_rated = rating.times_rated + 1
-		# if rating.quality_rating == 0:
-		# 	rating.quality_rating = int(request.POST['qRate'])
-		# else:
 		rating.quality_rating = ((rating.quality_rating * (rating.times_rated -1)) + int(request.POST['qRate']))/rating.times_rated
 		rating.rated_by.add(User.objects.get(id=request.session['user_id']))
 		rating.save()
