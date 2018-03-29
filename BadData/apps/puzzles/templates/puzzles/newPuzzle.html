@@ -25,10 +25,11 @@
         <div class="variable-table col-6">
             <form action="/BadData/create/" method="POST">
                 {% csrf_token %}
+                <div class="errors"></div>
                 <input type="hidden" name="columnCount" class="columnCount" value="1">
                 <input type="hidden" name="rowCount" class="rowCount" value="1">
-                Puzzle Name<input type="text" name="name">
-                Difficulty (1-10) <input type="number" name="difficulty">
+                Puzzle Name<input type="text" name="name" class="name">
+                Difficulty (1-10) <input type="number" name="difficulty" class="difficulty" min="1" max="10">
                 Default Table
                 <table>
                     <thead>
@@ -49,7 +50,7 @@
                     Y-Axis<input type="text" name="relationshipY" class="relationshipY">
                 </div>
                 <input type="button" value="Update" class="update">
-                <input type="submit" value="Submit" class="submit">    
+                <input type="button" value="Submit" class="submit" onclick="submitPuzzle()">    
             </form>
         </div>
         <div class="graphs">

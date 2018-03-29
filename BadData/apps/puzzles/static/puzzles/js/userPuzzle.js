@@ -106,7 +106,14 @@ function evalJsep(jsepObj, data, idx)
 		}
 	}
 }
-
+function getProperties()
+{
+	return {
+		'length':true,
+		'countUpper':true,
+		'countLower':true
+	}
+}
 function answerGraph(answer)
 {
     var trace1 = 
