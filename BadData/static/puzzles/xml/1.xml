@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<puzzle>
+    <table>
+        <column value="id"><row>1</row></column>
+        <column value="name"><row>stephablos</row></column>
+        <column value="cost"><row>100000</row></column>
+    </table>
+    <answer>
+        <y>[10,8,6,4]</y>
+        <x>[1,2,3,4]</x>
+    </answer>
+    <relationships>
+        <y>name.length</y>
+        <x>id</x>
+    </relationships>
+</puzzle>

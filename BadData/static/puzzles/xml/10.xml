@@ -1,0 +1,1 @@
+<puzzle><table><column value="What"><row>Bannana</row></column><column value="When"><row>3.00</row></column></table><answer><y>[2,4,6,8,16]</y><x>[1,2,3,5,8]</x></answer><relationships><x>When-2</x><y>What.length</y></relationships></puzzle>

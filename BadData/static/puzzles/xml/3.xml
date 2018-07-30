@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<puzzle>
+    <table>
+        <column value="id"><row>1</row></column>
+        <column value="Company"><row>BadData inc.</row></column>
+		<column value="User"><row>Nick</row></column>
+    </table>
+    <answer>
+        <y>[2, 7, 11, 16]</y>
+        <x>[1,2,3,4]</x>
+    </answer>
+	<relationships>
+		<x>id</x>
+		<y>(Company.countUpper % 9) + (User.countLower % 9)</y>
+	</relationships>
+</puzzle>
