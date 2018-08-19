@@ -14,7 +14,7 @@
     <div id="wrapper">
         <div class="header">
             <h1 class="title">User: <span style="color:rgb(177, 246, 255)">{{user.first_name}}</span></h1>
-            <p class="nav-bar"><a href="baddata/logout">Logout</a> | <a href="baddata/BadData">Home: Puzzle Select</a></p>
+            <p class="nav-bar"><a href="/logout">Logout</a> | <a href="/BadData">Home: Puzzle Select</a></p>
         </div>
         <div class="row">
             <div class="col-2 menu">
@@ -32,7 +32,7 @@
                         <p>Difficulty: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.difficulty}}/10</span> | User Rating: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.quality_rating}}/10</span></p>
                         <p>Total Times Rated: <span style="color:rgb(10, 30, 141); font-weight: bold">{{puzzle.times_rated}}</span></p>
                         {% if user.id == current_user.id %}
-                            <p class="delete_puzzle"><a href="baddata/BadData/delete/{{puzzle.id}}"><span style="color:red">Delete Puzzle</span></a></p>
+                            <p class="delete_puzzle"><a href="/BadData/delete/{{puzzle.id}}"><span style="color:red">Delete Puzzle</span></a></p>
                         {% endif %}                  
                     </li>
                 {% endfor %}
