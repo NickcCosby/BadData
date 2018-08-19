@@ -25,7 +25,7 @@ SECRET_KEY = 'u921#xk-(6-eqqc(c7qzzg-pa3x(l#@y@g1l4#*esjt(qqc&og'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['18.222.176.152', 'www.thetrueforge.com']
+ALLOWED_HOSTS = ['18.222.176.152', 'baddata.thetrueforge.com']
 
 
 # Application definition
