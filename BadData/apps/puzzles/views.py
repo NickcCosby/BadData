@@ -9,7 +9,7 @@ import os
 
 def index(request):
 	if 'user_id' not in request.session:
-		return redirect('/')
+		return redirect('/baddata/')
 	if 'user-puzzles' not in request.session:
 		request.session['user-puzzles'] = 'id'
 	adminCreated = Puzzle.objects.filter(creator=User.objects.get(id=1))
@@ -23,7 +23,7 @@ def index(request):
 
 def getPuzzle(request, number):
 	if 'user_id' not in request.session:
-		return redirect('/')
+		return redirect('/baddata/')
 	context = {
 		'number': number,
 		'url' : 'puzzles/js/'+str(number)+'.js',
@@ -34,9 +34,9 @@ def getPuzzle(request, number):
 
 def wonPuzzle(request, number):
 	if 'user_id' not in request.session:
-		return redirect('/')
+		return redirect('/baddata/')
 	if 'startTime' not in request.session:
-		return redirect('/BadData/puzzle/' + str(number) + '/')
+		return redirect('/baddata/BadData/puzzle/' + str(number) + '/')
 	puzzle = Puzzle.objects.get(id = number)
 	puzzle.completed_by.add(User.objects.get(id=request.session['user_id']))
 	puzzle.save()
@@ -81,35 +81,35 @@ def createPuzzle(request):
 	tree = ET.ElementTree(puzzle)
 	newPuzzle = Puzzle.objects.create(name=request.POST['name'], quality_rating=0, times_rated = 0,difficulty=request.POST['difficulty'], creator=User.objects.get(id=request.session['user_id']))
 	tree.write("apps/puzzles/static/puzzles/xml/"+ str(newPuzzle.id) +".xml")
-	return redirect('/BadData')
+	return redirect('/baddata/BadData')
 
 def orderByDate(request):
 	if request.session['user-puzzles'] == 'created_at':
 		request.session['user-puzzles'] = '-created_at'
 	else:
 		request.session['user-puzzles'] = 'created_at'
-	return redirect('/BadData')
+	return redirect('/baddata/BadData')
 
 def orderByDifficulty(request):
 	if request.session['user-puzzles'] == 'difficulty':
 		request.session['user-puzzles'] = '-difficulty'
 	else:
 		request.session['user-puzzles'] = 'difficulty'
-	return redirect('/BadData')
+	return redirect('/baddata/BadData')
 
 def orderByRating(request):
 	if request.session['user-puzzles'] == 'quality_rating':
 		request.session['user-puzzles'] = '-quality_rating'
 	else:
 		request.session['user-puzzles'] = 'quality_rating'
-	return redirect('/BadData')
+	return redirect('/baddata/BadData')
 
 def orderByName(request):
 	if request.session['user-puzzles'] == 'name':
 		request.session['user-puzzles'] = '-name'
 	else:
 		request.session['user-puzzles'] = 'name'
-	return redirect('/BadData')
+	return redirect('/baddata/BadData')
 
 def qRate(request, number):
 	rating = Puzzle.objects.get(id = number)
@@ -118,9 +118,9 @@ def qRate(request, number):
 		rating.quality_rating = ((rating.quality_rating * (rating.times_rated -1)) + int(request.POST['qRate']))/rating.times_rated
 		rating.rated_by.add(User.objects.get(id=request.session['user_id']))
 		rating.save()
-	return redirect('/BadData')
+	return redirect('/baddata/BadData')
 
 def deletePuzzle(request, number):
 	Puzzle.objects.get(id=number).delete()
 	os.remove("apps/puzzles/static/puzzles/xml/"+ str(number) +".xml")
-	return redirect('/user_info/'+str(request.session['user_id']))
+	return redirect('/baddata/user_info/'+str(request.session['user_id']))

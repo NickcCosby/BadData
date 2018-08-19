@@ -17,7 +17,7 @@ def register(request):
     if len(errors):
         for tag, error in errors.iteritems():
             messages.error(request, error, extra_tags=tag)
-        return redirect('/')
+        return redirect('/baddata/')
     else:
         User.objects.create(
             first_name = str(request.POST['first_name']),
@@ -27,26 +27,26 @@ def register(request):
             )
         user = User.objects.get(email = request.POST['email'])
         request.session['user_id'] = user.id
-    return redirect('/BadData')
+    return redirect('/baddata/BadData/')
 
 def login(request):
     errors = User.objects.login_validator(request.POST)
     if len(errors):
         for tag, error in errors.iteritems():
             messages.error(request, error, extra_tags=tag)
-        return redirect('/')
+        return redirect('/baddata/')
     else:
         user = User.objects.get(email = request.POST['email'])
         request.session['user_id'] = user.id
-    return redirect('/BadData')
+    return redirect('/baddata/BadData')
 
 def logout(request):
     request.session.clear()    
-    return redirect('/')
+    return redirect('/baddata/')
 
 def view_user(request, id):
     if 'user_id' not in request.session:
-        return redirect('/')
+        return redirect('/baddata/')
     context = {
         "user" : User.objects.get(id=id),
         "puzzles" : Puzzle.objects.filter(creator=User.objects.get(id=id)),
