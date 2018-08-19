@@ -19,7 +19,7 @@
     <div id="wrapper">
         <div class="header">
             <h1 class="title">Create: New Puzzle</h1>
-            <p class="nav-bar"><a href="/BadData">Home: Puzzle Select</a></p>
+            <p class="nav-bar"><a href="baddata/BadData">Home: Puzzle Select</a></p>
         </div>
         <div class="col-12 creationInstructions">
             <h2 class="title">Show/Hide Instructions</h2>
@@ -33,7 +33,7 @@
         </div>
         <div class="variable-table col-6">
             <div class="newPuzzleInput">
-                <form action="/BadData/create/" method="POST">
+                <form action="baddata/BadData/create/" method="POST">
                     {% csrf_token %}
                     <div class="errors"></div>
                     <input type="hidden" name="columnCount" class="columnCount" value="1">

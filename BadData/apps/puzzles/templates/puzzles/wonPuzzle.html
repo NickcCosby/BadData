@@ -13,7 +13,7 @@
     <div id="wrapper">
         <div class="header">
             <h1>Congrats! {{user.first_name}}</h1>
-            <p class="nav-bar"><a href="/BadData/create_puzzle">Create A Puzzle</a> | <a href="/BadData">Home: Puzzle Select</a></p>
+            <p class="nav-bar"><a href="baddata/BadData/create_puzzle">Create A Puzzle</a> | <a href="baddata/BadData">Home: Puzzle Select</a></p>
         </div>
         <div class="row">
             <div class="col-3 menu">
@@ -21,7 +21,7 @@
             <div class="puzzle-info col-6">
                 <h2><span style="color: rgb(255, 0, 0); font-style: oblique;">Bad</span>DATA: <span style="color:blue">{{puzzle.name}}</span> Solved!</h2>
                 <br>
-                <h3>Created By: <a href="/user_info/{{puzzle.creator.id}}"><span style="color:blue">{{puzzle.creator.first_name}}</span></a></h3>
+                <h3>Created By: <a href="baddata/user_info/{{puzzle.creator.id}}"><span style="color:blue">{{puzzle.creator.first_name}}</span></a></h3>
                 <h3>Difficulty: {{puzzle.difficulty}}/10</h3>
                 <br>
                 <br>           
@@ -29,7 +29,7 @@
                 <br>
                 <br>                
                 {% if rated == True %}
-                <form action="/BadData/qRate/{{puzzle.id}}" method="POST">
+                <form action="baddata/BadData/qRate/{{puzzle.id}}" method="POST">
                     {% csrf_token %}
                     <h3>Quality Rating: 
                         <select name="qRate">

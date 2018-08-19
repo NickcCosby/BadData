@@ -16,7 +16,7 @@
         <div class="header">
             <h1 class="title" style="font-size: 40px"><span style="color: rgb(255, 0, 0); font-style: oblique;">Bad</span>DATA</h1>
             <p class="title">Welcome: {{user.first_name}}</p>
-            <p class="nav-bar"><a href="/logout">Logout</a> | <a href="/user_info/{{user.id}}">User Info</a></p>
+            <p class="nav-bar"><a href="baddata/logout">Logout</a> | <a href="baddata/user_info/{{user.id}}">User Info</a></p>
         </div>
         <div class="row">
             <div class="default-puzzles col-6 menu">
@@ -25,24 +25,24 @@
                 </div>
                 <ul>
                     {% for puzzle in adminPuzzles %}
-                        <li class="link col-6" href="/BadData/puzzle/{{puzzle.id}}">
+                        <li class="link col-6" href="baddata/BadData/puzzle/{{puzzle.id}}">
                             {% for complete in puzzle.completed_by.all %}
                                 {% if complete.id == user.id %}
                                     <span style="color: yellow;">COMPLETED!</span>
                                 {% endif %}
                             {% endfor %}
-                            <a href="/BadData/puzzle/{{puzzle.id}}"><span style="color:white">{{puzzle.name}}</span> Play</a></li>
+                            <a href="baddata/BadData/puzzle/{{puzzle.id}}"><span style="color:white">{{puzzle.name}}</span> Play</a></li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="col-6">
                 <div class="order">
                     <h2 class="title">User Created Puzzles</h2>
-                    <p><a href="/BadData/date">Date Created</a> | <a href="/BadData/difficulty">Difficulty</a> | <a href="/BadData/rating">User Rating</a> | <a href="/BadData/title">Title</a></p>  
+                    <p><a href="baddata/BadData/date">Date Created</a> | <a href="baddata/BadData/difficulty">Difficulty</a> | <a href="baddata/BadData/rating">User Rating</a> | <a href="baddata/BadData/title">Title</a></p>  
                 </div>
                 <div class="user-puzzles">
                     {% for puzzle in userPuzzles %}
-                        <div class="user-created-puzzle link col-6" href="/BadData/puzzle/{{puzzle.id}}">
+                        <div class="user-created-puzzle link col-6" href="baddata/BadData/puzzle/{{puzzle.id}}">
                             <p>{% for complete in puzzle.completed_by.all %}
                                     {% if complete.id == user.id %}
                                         <span style="color: yellow;">COMPLETED! </span>
@@ -51,14 +51,14 @@
                                 <span style="color:rgb(106, 200, 255); font-size: 20px; font-weight:bold">{{puzzle.name}}</span></p>
                             <p>Difficulty: {{puzzle.difficulty}}/10 | User Rating: {{puzzle.quality_rating}}/10</p>
                             <p>Created: {{puzzle.created_at|date:'m-d-Y'}}</p>
-                            <p>Made By: <a href="/user_info/{{puzzle.creator.id}}">{{puzzle.creator.first_name}}</a></p>
+                            <p>Made By: <a href="baddata/user_info/{{puzzle.creator.id}}">{{puzzle.creator.first_name}}</a></p>
                         </div>
                     {% endfor %}
                 </div>
                 <div class="create-puzzle">
                     <h2>Create Puzzle</h2>
                     <p>Make your own custom puzzle to challenge your friends or other players.</p>
-                    <a href="/BadData/create_puzzle">Create Puzzle</a>
+                    <a href="baddata/BadData/create_puzzle">Create Puzzle</a>
                 </div>
             </div>
         </div>
